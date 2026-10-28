@@ -281,7 +281,7 @@ function openTip(n,fromHash){const t=TIPS.find(x=>x.n===n);if(!t)return;lastFocu
    ${t.cmp?`<div class="compare" role="slider" tabindex="0" aria-label="Comparar topo antes e depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><canvas width="1200" height="600"></canvas><span class="lbl l">Antes</span><span class="lbl r">Depois</span></div><p class="hint">Arraste pra comparar o topo antes e depois.</p>`:''}
    <div class="card">${setsHTML(t)}${whyHTML(t)}</div>
    ${t.note?`<p class="note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(t.note)}</p>`:''}
-   <div class="actions"><button class="btn btn-ink" type="button" data-copyall="${t.n}">Copiar tudo</button>${t.reel?`<a class="btn btn-line" href="${t.reel}" target="_blank" rel="noopener">Ver o reel</a>`:''}<button class="btn btn-line" type="button" data-share="${t.n}">Copiar link</button></div>`;
+   <div class="actions"><button class="btn btn-ink" type="button" data-copyall="${t.n}">Copiar tudo</button>${t.reel?`<a class="btn btn-line" href="${t.reel}" target="_blank" rel="noopener">Ver o reel</a>`:''}</div>`;
   sheet.hidden=false;scrim.hidden=false;requestAnimationFrame(()=>{sheet.classList.add('open');scrim.classList.add('open')});
   document.body.style.overflow='hidden';sheet.scrollTop=0;
   const cmp=body.querySelector('.compare');if(cmp)initCompare(cmp);
@@ -297,7 +297,6 @@ window.addEventListener('hashchange',fromHash);
 async function copyText(txt,btn,label){try{await navigator.clipboard.writeText(txt);btn.classList.add('done');btn.textContent='Copiado'}catch(e){btn.textContent=txt}setTimeout(()=>{btn.classList.remove('done');btn.textContent=label},1600)}
 document.addEventListener('click',e=>{const b=e.target.closest('.copy');if(b)copyText(b.dataset.copy,b,'Copiar')});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-copyall]');if(b){const t=TIPS.find(x=>x.n===b.dataset.copyall);if(t)copyText(allText(t),b,'Copiar tudo')}});
-document.addEventListener('click',e=>{const b=e.target.closest('[data-share]');if(b)copyText(location.href.split('#')[0]+'#dica-'+b.dataset.share,b,'Copiar link')});
 document.getElementById('hash').addEventListener('click',e=>copyText('#dicasnossoprojeto3d',e.currentTarget,'#dicasnossoprojeto3d'));
 
 /* ---------- shared drawing ---------- */
