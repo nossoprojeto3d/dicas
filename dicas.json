@@ -87,7 +87,7 @@
         {
           "onde": "Aba Suporte",
           "oque": "Distância Z superior",
-          "valor": "0.2",
+          "valor": "0.255",
           "unidade": "mm"
         },
         {
@@ -97,8 +97,8 @@
           "unidade": "camadas"
         }
       ],
-      "porque": "O suporte em árvore encosta na peça só em pontinhos; a folga de uma camada no Z faz o suporte segurar sem soldar; e a interface cria uma tampa lisa onde a peça apoia, em vez de apoiar direto nos pilares.",
-      "nota": "Regra prática: distância Z superior igual à altura da camada (0.2 mm para camada de 0.2). Se ainda grudar, sobe para 0.25 mm.",
+      "porque": "O suporte em árvore encosta na peça só em pontinhos; subir a distância Z do padrão 0.2 para 0.255 mm deixa uma folguinha para o suporte segurar sem soldar; e a interface cria uma tampa lisa onde a peça apoia, em vez de apoiar direto nos pilares.",
+      "nota": "O padrão da distância Z superior costuma ser 0.2 mm; em 0.255 mm o suporte solta bem mais fácil sem a peça cair.",
       "busca": "suporte grudado gruda difícil tirar remover marca marcado cicatriz parte de baixo árvore tree distância z interface support",
       "comparar": false,
       "video": "reel_03_suporte-grudado.mp4"
