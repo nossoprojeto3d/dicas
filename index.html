@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
 /* Identidade "ficha técnica": fundo de papel claro, preto, um laranja de filamento como destaque e valores em fonte mono, como num manual.
-   Layout: coluna de celular (máx. 600px). No computador (≥960px): barra lateral fixa com título, número, busca e filtros; à direita a dica mais nova e os cartões das dicas (o gancho do reel faz o papel de capa). */
+   Layout: coluna de celular (máx. 600px). No computador (≥960px): barra lateral fixa com título, número, busca e filtros; à direita os cartões das dicas (o gancho do reel faz o papel de capa). */
 :root{
   --bg:#F6F4EF; --surface:#FFFFFF; --ink:#141414; --muted:#68645C; --line:#E6E1D6; --line-2:#D5CFC2;
   --accent:#E8590C; --accent-ink:#B8440A; --accent-soft:#FDECDF; --mark:#FFE39A; --ok:#1F9D55; --err:#C2383D;
@@ -127,9 +127,9 @@ h1{font-weight:900;font-size:clamp(2.5rem,11vw,3.5rem);line-height:.98;letter-sp
 .tfoot b{color:var(--ink);font-weight:700}
 .empty{color:var(--muted);text-align:center;padding:20px;margin:0}
 
-/* celular: barra lateral e biblioteca se desfazem e a ordem fica título → dica mais nova → "Todas as dicas" → busca → cartões */
+/* celular: barra lateral e biblioteca se desfazem e a ordem fica título → "Todas as dicas" → busca → cartões */
 .side,.finder{display:contents}
-.top{order:0}.hero{order:1}.featured{order:2}.layers-mid{order:3}.sec{order:4}.tools{order:5}.grid{order:6}.empty{order:7}.wrap>.layers:not(.layers-mid){order:8}footer{order:9}
+.top{order:0}.hero{order:1}.layers-mid{order:2}.sec{order:3}.tools{order:4}.grid{order:5}.empty{order:6}.wrap>.layers:not(.layers-mid){order:7}footer{order:8}
 .tools,.grid,.empty{margin-top:-16px}
 @media (min-width:960px){
   body{padding-top:28px}
@@ -139,7 +139,6 @@ h1{font-weight:900;font-size:clamp(2.5rem,11vw,3.5rem);line-height:.98;letter-sp
   .side{display:flex;flex-direction:column;gap:22px;position:sticky;top:28px;grid-column:1}
   .finder{display:flex;grid-column:2;gap:20px}
   .tools,.grid,.empty{margin-top:0}
-  .featured{margin-bottom:16px}
   h1{font-size:3.05rem}
   .chips{flex-wrap:wrap;overflow:visible}
   .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
@@ -199,7 +198,6 @@ footer p{margin:0;color:var(--muted)}
   <div class="layers layers-mid" aria-hidden="true"></div>
 
   <section class="finder" aria-labelledby="find-title">
-    <article class="card featured" id="featured" aria-labelledby="feat-title" hidden></article>
     <h2 id="find-title" class="sec">Todas as dicas <span id="count"></span></h2>
     <div class="grid" id="grid"></div>
     <p class="empty" id="empty" hidden>Nenhuma dica encontrada. Comenta no reel o que você quer ver na série.</p>
@@ -239,15 +237,7 @@ async function loadTips(){
   }catch(e){TIPS=[]}
   THEMES=['Todas',...new Set(TIPS.map(t=>t.tema))];
   document.getElementById('chips').innerHTML=THEMES.map(x=>`<button class="chip" type="button" data-tema="${esc(x)}" aria-pressed="${x===theme}">${x==='Todas'?x:`<span class="dot" style="--c:${themeColor(x)}"></span>${esc(x)}`}</button>`).join('');
-  renderFeatured();render();fromHash();}
-
-/* ---------- dica mais nova em destaque ---------- */
-function renderFeatured(){const t=TIPS[0],el=document.getElementById('featured');if(!t)return;
-  el.innerHTML=`<div class="meta"><span class="pill">Mais nova</span><span class="dot" style="--c:${themeColor(t.tema)}">Nº ${t.n} · ${esc(t.tema)}</span></div>
-    <h2 id="feat-title">${esc(t.t)}</h2>${setsHTML(t)}${whyHTML(t)}
-    <div class="actions"><button class="btn btn-ink btn-sm" type="button" data-copyall="${t.n}">Copiar tudo</button><button class="btn btn-line btn-sm" type="button" data-open="${t.n}">Ver ficha completa</button></div>`;
-  el.hidden=false;}
-document.getElementById('featured').addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b)openTip(b.dataset.open)});
+  render();fromHash();}
 
 /* ---------- biblioteca ---------- */
 let THEMES=['Todas'];let theme='Todas';
