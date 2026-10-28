@@ -66,6 +66,42 @@
       "busca": "teia de aranha fiapo fiapos stringing fio cabelo retração temperatura bico cruzar paredes umidade secar filamento",
       "comparar": false,
       "video": "reel_02_teia-de-aranha.mp4"
+    },
+    {
+      "n": 3,
+      "titulo": "Suporte que sai na mão em 3 ajustes",
+      "tema": "Problemas",
+      "gancho": [
+        "O suporte da sua",
+        "impressão 3D",
+        "gruda e marca?"
+      ],
+      "lead": "Se o suporte gruda na peça, dá trabalho pra tirar e ainda deixa a parte de baixo toda marcada, muda estes três ajustes na aba Suporte do fatiador e imprime de novo.",
+      "ajustes": [
+        {
+          "onde": "Aba Suporte",
+          "oque": "Tipo de suporte",
+          "valor": "Árvore",
+          "unidade": ""
+        },
+        {
+          "onde": "Aba Suporte",
+          "oque": "Distância Z superior",
+          "valor": "0.2",
+          "unidade": "mm"
+        },
+        {
+          "onde": "Aba Suporte",
+          "oque": "Camadas de interface superior",
+          "valor": "3",
+          "unidade": "camadas"
+        }
+      ],
+      "porque": "O suporte em árvore encosta na peça só em pontinhos; a folga de uma camada no Z faz o suporte segurar sem soldar; e a interface cria uma tampa lisa onde a peça apoia, em vez de apoiar direto nos pilares.",
+      "nota": "Regra prática: distância Z superior igual à altura da camada (0.2 mm para camada de 0.2). Se ainda grudar, sobe para 0.25 mm.",
+      "busca": "suporte grudado gruda difícil tirar remover marca marcado cicatriz parte de baixo árvore tree distância z interface support",
+      "comparar": false,
+      "video": "reel_03_suporte-grudado.mp4"
     }
   ]
 }
