@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Todas as fichas da série #dicasnossoprojeto3d: ajustes de impressão 3D prontos pra usar no fatiador.">
+<meta property="og:title" content="Dicas Nosso Projeto 3D">
+<meta property="og:description" content="Ache a dica pelo número do vídeo e copie os valores direto pro fatiador.">
+<meta property="og:image" content="capas/01.jpg">
+<link rel="icon" href="logo.png">
+<style>[hidden]{display:none!important}img{max-width:100%}body{margin:0}</style>
+<title>Dicas Nosso Projeto 3D</title>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: coluna de celular (máx. 600px). Topo = impressora isométrica imprimindo ao vivo; depois a dica mais nova com ficha que inclina; biblioteca em linhas separadas por "linhas de camada". */
+:root{
+  --bg:#FFFFFF; --paper:#FAF8F4; --ink:#17161A; --muted:#6F6A60; --line:#EAE4D8;
+  --gold:#C9A24B; --gold-deep:#8F6B22; --gold-soft:#F5EDDB; --night:#1C1B20; --on-night:#FBF8F1; --ok:#1F9D55;
+  --f-display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121114; --paper:#1A191D; --ink:#F4F1EA; --muted:#A49D90; --line:#2B2A2E;
+  --gold:#D9B766; --gold-deep:#E6C981; --gold-soft:#2A2417; --night:#222127; --on-night:#F4F1EA; --ok:#3CC47A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121114; --paper:#1A191D; --ink:#F4F1EA; --muted:#A49D90; --line:#2B2A2E;
+  --gold:#D9B766; --gold-deep:#E6C981; --gold-soft:#2A2417; --night:#222127; --on-night:#F4F1EA; --ok:#3CC47A; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:18px 56px}
+.wrap{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:34px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:10px}
+.layers{height:14px;background:repeating-linear-gradient(180deg,var(--line) 0 2px,transparent 2px 5px);opacity:.9;border-radius:2px}
+
+/* header */
+.top{display:flex;align-items:center;gap:12px}
+.top img{width:44px;height:auto;flex:none}
+.top .who{flex:1;min-width:0;font-weight:600;font-size:.95rem;line-height:1.2}
+.top .who span{display:block;color:var(--muted);font-weight:500;font-size:.85rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;font:600 .95rem var(--f-body);
+  padding:11px 20px;text-decoration:none;cursor:pointer;white-space:nowrap;transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn-ink{background:var(--ink);color:var(--bg)}
+.btn-line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn-sm{padding:8px 14px;font-size:.85rem}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:10px}
+.stage{position:relative;border-radius:28px;background:radial-gradient(120% 90% at 50% 18%,var(--paper),var(--bg) 70%);overflow:hidden}
+.stage canvas{display:block;width:100%;height:auto;aspect-ratio:600/400}
+.stage [hidden]{display:none!important}
+.stage .replay{position:absolute;right:12px;bottom:12px}
+.status{position:absolute;left:14px;top:12px;z-index:2;padding:4px 10px 4px 8px;border-radius:999px;background:color-mix(in srgb,var(--bg) 82%,transparent);display:flex;align-items:center;gap:8px;font:600 .82rem var(--f-body);color:var(--muted)}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px var(--gold-soft)}
+.status b{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600}
+h1{font-family:var(--f-display);font-weight:900;font-size:clamp(3rem,13vw,4.6rem);line-height:.88;letter-spacing:-.005em;margin:6px 0 0;text-wrap:balance;text-transform:uppercase}
+.sub{margin:0;color:var(--muted);font-size:1.05rem;max-width:34ch;text-wrap:pretty}
+.sub b{color:var(--ink);font-weight:600}
+
+/* featured */
+.feat{display:flex;flex-direction:column;gap:18px}
+.feat-top{display:flex;align-items:flex-end;gap:16px}
+.bignum{font:900 6.2rem/0.78 var(--f-display);color:transparent;-webkit-text-stroke:2.5px var(--gold);flex:none;font-variant-numeric:tabular-nums}
+.feat-title{min-width:0}
+.feat-title small{display:block;color:var(--gold-deep);font-weight:600;font-size:.9rem;margin-bottom:4px}
+.feat-x h2{font:800 2.25rem/0.95 var(--f-display);margin:0;text-transform:uppercase;text-wrap:balance}
+.lead{margin:0;color:var(--muted);max-width:52ch}
+
+/* compare slider */
+.compare{position:relative;border-radius:22px;overflow:hidden;touch-action:pan-y;user-select:none;cursor:ew-resize;background:var(--paper)}
+.compare canvas{display:block;width:100%;height:auto;aspect-ratio:600/300}
+.compare .lbl{position:absolute;top:12px;font:700 .8rem var(--f-body);padding:5px 11px;border-radius:999px;color:#fff;pointer-events:none}
+.compare .l{left:12px;background:#D9464B}.compare .r{right:12px;background:#1F9D55}
+.hint{margin:-8px 0 0;color:var(--muted);font-size:.85rem}
+
+/* ficha (tilt) */
+.tilt{perspective:900px}
+.ficha{position:relative;background:var(--night);color:var(--on-night);border-radius:26px;padding:20px;display:flex;flex-direction:column;gap:14px;
+  transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.8,.2,1);overflow:hidden;
+  box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 30px 60px -30px rgba(23,22,26,.55)}
+.ficha::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;
+  background:linear-gradient(135deg,#F1D58E,#B58A35 40%,#F6E2A8 60%,#8F6B22);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.ficha .sheen{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(246,226,168,.22),transparent 45%)}
+.ficha.live .sheen{opacity:1}
+.ficha-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.ficha-head strong{font:800 1.25rem var(--f-display);text-transform:uppercase;color:var(--gold);letter-spacing:.01em}
+.ficha-head span{font-size:.8rem;opacity:.6}
+.set{display:grid;grid-template-columns:1fr auto;gap:4px 14px;align-items:center;padding:14px 0;border-top:1px solid rgba(255,255,255,.1)}
+.set .where{font-size:.82rem;opacity:.65}
+.set .what{font-weight:600;line-height:1.3;min-width:0}
+.set .val{grid-row:1 / span 2;grid-column:2;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.set .val b{font:900 2.4rem/0.9 var(--f-display);color:var(--on-night);font-variant-numeric:tabular-nums;white-space:nowrap}
+.set .val b small{font-size:.5em;opacity:.7;margin-left:3px}
+.copy{font:600 .76rem var(--f-body);border:0;border-radius:999px;padding:6px 11px;background:rgba(255,255,255,.1);color:var(--on-night);cursor:pointer}
+.copy.done{background:var(--ok);color:#fff}
+.why{margin:0;padding-top:12px;border-top:1px solid rgba(255,255,255,.1);font-size:.92rem;line-height:1.5;color:rgba(251,248,241,.82)}
+.why b{color:var(--gold)}
+.note{display:flex;align-items:center;gap:8px;font-size:.88rem;color:var(--muted);margin:0}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+
+/* library */
+.lib{display:flex;flex-direction:column;gap:14px}
+.lib h3{font:900 2.2rem/0.9 var(--f-display);margin:0;text-transform:uppercase}
+.search{width:100%;font:500 1rem var(--f-body);padding:13px 16px;border-radius:16px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink)}
+.search::placeholder{color:var(--muted)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.chip{flex:none;font:600 .88rem var(--f-body);padding:8px 15px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.list{display:flex;flex-direction:column}
+details.item{border-top:1.5px solid var(--line)}
+details.item:last-child{border-bottom:1.5px solid var(--line)}
+details.item summary{list-style:none;display:grid;grid-template-columns:64px 1fr 24px;align-items:center;gap:12px;padding:16px 2px;cursor:pointer}
+details.item summary::-webkit-details-marker{display:none}
+.inum{font:900 2.3rem/0.9 var(--f-display);color:var(--gold);font-variant-numeric:tabular-nums}
+.ititle{font-weight:600;line-height:1.3;display:block}
+.imeta{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}
+.tag{font:600 .75rem var(--f-body);padding:3px 10px;border-radius:999px;background:var(--gold-soft);color:var(--gold-deep)}
+.tag.ex{background:transparent;color:var(--muted);box-shadow:inset 0 0 0 1px var(--line)}
+.chev{color:var(--muted);transition:transform .25s}
+details.item[open] .chev{transform:rotate(180deg)}
+.item .body{padding:0 0 18px}
+.empty{color:var(--muted);text-align:center;padding:20px;margin:0}
+
+
+/* finder + grid */
+.finder{display:flex;flex-direction:column;gap:16px}
+.sec{font:900 2.2rem/0.9 var(--f-display);margin:0;text-transform:uppercase}
+.numform{display:flex;align-items:center;gap:10px;background:var(--paper);border:1.5px solid var(--line);border-radius:20px;padding:8px 8px 8px 16px}
+.numform label{font-weight:600;color:var(--muted);flex:none}
+.numform input{flex:1;min-width:0;width:100%;border:0;background:transparent;color:var(--ink);font:900 2.2rem/1 var(--f-display);font-variant-numeric:tabular-nums;padding:2px 0}
+.numform input::placeholder{color:var(--line)}
+.numform input:focus{outline:none}
+.numform:focus-within{border-color:var(--gold)}
+.err{margin:-6px 0 0;color:#C2383D;font-size:.9rem}
+.tools{display:flex;flex-direction:column;gap:10px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}
+.cover{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:6px;min-width:0}
+.cover:focus-visible{outline:3px solid var(--gold);outline-offset:4px;border-radius:16px}
+.shot{position:relative;display:block;border-radius:16px;overflow:hidden;aspect-ratio:3/4;background:#fff;box-shadow:0 0 0 1px var(--line),0 14px 30px -18px rgba(23,22,26,.45);transition:transform .25s}
+.cover:hover .shot,.cover:active .shot{transform:translateY(-3px) rotate(-.6deg)}
+.shot img{width:100%;height:100%;object-fit:cover;display:block}
+.badge{position:absolute;left:8px;bottom:8px;background:var(--night);color:var(--on-night);font:900 1.15rem/1 var(--f-display);padding:6px 10px 5px;border-radius:10px;box-shadow:0 0 0 1.5px var(--gold) inset}
+.exb{position:absolute;right:8px;bottom:10px;background:rgba(255,255,255,.92);color:#6F6A60;font:600 .7rem var(--f-body);padding:3px 8px;border-radius:999px}
+.ctitle{font-weight:600;line-height:1.25;font-size:.95rem}
+.ctema{font-size:.8rem;color:var(--muted);margin-top:-4px}
+
+/* sheet */
+.scrim{position:fixed;inset:0;background:rgba(14,13,16,.5);opacity:0;transition:opacity .28s;z-index:20}
+.scrim.open{opacity:1}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:21;max-height:92%;overflow-y:auto;background:var(--bg);border-radius:28px 28px 0 0;
+  padding:10px max(16px,env(safe-area-inset-right,0px)) calc(28px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  transform:translateY(100%);transition:transform .3s cubic-bezier(.2,.8,.2,1);box-shadow:0 -20px 60px -20px rgba(0,0,0,.35)}
+.sheet.open{transform:none}
+.sheet-body{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:18px;padding-top:6px}
+.sheet-top{position:sticky;top:-10px;z-index:3;max-width:600px;margin:-10px auto 0;padding:14px 0 10px;display:flex;justify-content:flex-end;background:var(--bg)}
+.grab{position:absolute;left:50%;top:8px;transform:translateX(-50%);width:44px;height:5px;border-radius:3px;background:var(--line)}
+.close{border:0;border-radius:999px;background:var(--paper);color:var(--ink);font:600 .85rem var(--f-body);padding:8px 14px;cursor:pointer;box-shadow:inset 0 0 0 1.5px var(--line)}
+.sheet h2{font:800 2.25rem/0.95 var(--f-display);margin:0;text-transform:uppercase;text-wrap:balance}
+
+footer{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+footer img{width:64px;height:auto}
+footer p{margin:0;color:var(--muted)}
+.hash{font:800 1.5rem var(--f-display);color:var(--gold-deep);background:none;border:0;cursor:pointer;padding:4px 8px;text-transform:lowercase}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <img src="logo.png" alt="Nosso Projeto 3D">
+    <div class="who">Nosso Projeto 3D<span>@nossoprojeto3d</span></div>
+    <a class="btn btn-ink btn-sm" href="https://www.instagram.com/nossoprojeto3d/" target="_blank" rel="noopener">Seguir</a>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <div class="stage">
+      <canvas id="printer" width="1200" height="800" aria-label="Impressora 3D imprimindo uma peça camada por camada e alisando o topo"></canvas>
+      <div class="status" aria-live="polite"><i></i><span id="st">Imprimindo camada <b id="lay">1</b> de 14</span></div>
+      <button class="btn btn-line btn-sm replay" id="replay" type="button" hidden>Imprimir de novo</button>
+    </div>
+    <h1 id="h1">Dicas de impressão 3D</h1>
+    <p class="sub">Comentou <b>DICA</b> no reel? Toca na capa do vídeo que você viu ou digita o <b>número que aparece no final dele</b>.</p>
+  </section>
+
+  <div class="layers" aria-hidden="true"></div>
+
+  <section class="finder" aria-labelledby="find-title">
+    <h2 id="find-title" class="sec">Qual dica você viu?</h2>
+    <form class="numform" id="numform" novalidate>
+      <label for="num">Dica nº</label>
+      <input id="num" inputmode="numeric" pattern="[0-9]*" maxlength="3" placeholder="01" autocomplete="off">
+      <button class="btn btn-ink" type="submit">Abrir ficha</button>
+    </form>
+    <p class="err" id="err" hidden></p>
+    <div class="tools">
+      <input class="search" id="q" type="search" placeholder="Ou busca pelo problema: fiapo, primeira camada…" aria-label="Buscar dica pelo problema">
+      <div class="chips" role="toolbar" aria-label="Filtrar por tema" id="chips"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>Nenhuma dica encontrada. Comenta no reel o que você quer ver na série.</p>
+  </section>
+
+  <div class="layers" aria-hidden="true"></div>
+
+
+  <footer>
+    <img src="logo.png" alt="">
+    <p>Toda semana tem dica nova na série</p>
+    <button class="hash" type="button" id="hash">#dicasnossoprojeto3d</button>
+    <a class="btn btn-ink" href="https://www.instagram.com/nossoprojeto3d/" target="_blank" rel="noopener">Seguir @nossoprojeto3d</a>
+  </footer>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" hidden>
+  <div class="sheet-top"><span class="grab" aria-hidden="true"></span><button class="close" id="close" type="button" aria-label="Fechar ficha">Fechar</button></div>
+  <div class="sheet-body" id="sheetBody"></div>
+</div>
+
+<script>
+/* ---------- data ---------- */
+let TIPS=[];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function fichaHTML(t){return `<span class="sheen"></span><div class="ficha-head"><strong>Ficha da dica ${t.n}</strong><span>#dicasnossoprojeto3d</span></div>${
+  t.sets.map(s=>`<div class="set"><span class="where">${esc(s[0])}</span><span class="what">${esc(s[1])}</span><span class="val"><b>${esc(s[2])}${s[3]?`<small>${esc(s[3])}</small>`:''}</b>${s[2]!=='✓'?`<button class="copy" type="button" data-copy="${esc(s[2])}">Copiar</button>`:''}</span></div>`).join('')
+  }<p class="why"><b>Por quê:</b> ${esc(t.why)}</p>`}
+
+/* example covers drawn in the page (real tips use the video cover) */
+function makeCover(t){const cv=document.createElement('canvas');cv.width=360;cv.height=480;const c=cv.getContext('2d');
+  c.fillStyle='#fff';c.fillRect(0,0,360,480);c.fillStyle='#EEEDF0';for(let y=8;y<480;y+=16)for(let x=8;x<360;x+=16){c.fillRect(x,y,1.6,1.6)}
+  c.textAlign='center';c.textBaseline='middle';
+  t.hook.forEach((l,i)=>{c.font='900 30px "Big Shoulders Display", Impact, sans-serif';const y=60+i*38;
+    if(i===1){const w=c.measureText(l).width;c.fillStyle='#F4E9CF';c.fillRect(180-w/2-8,y-17,w+16,34)}
+    c.fillStyle=i===2?'#E5484D':'#111214';c.fillText(l.toUpperCase(),180,y)});
+  const g=c.createLinearGradient(60,220,300,400);g.addColorStop(0,'#E3C67E');g.addColorStop(1,'#A9832F');
+  c.save();c.translate(180,300);c.rotate(-.1);c.fillStyle='#6E5420';c.beginPath();c.roundRect(-120,-56,240,128,22);c.fill();c.fillStyle=g;c.beginPath();c.roundRect(-120,-70,240,128,22);c.fill();c.restore();
+  return cv.toDataURL('image/jpeg',.85)}
+async function loadTips(){
+  try{const r=await fetch('dicas.json',{cache:'no-cache'});const d=await r.json();
+    TIPS=d.dicas.map(x=>({n:String(x.n).padStart(2,'0'),t:x.titulo,tema:x.tema,hook:x.gancho,lead:x.lead,k:(x.busca||''),
+      sets:x.ajustes.map(a=>[a.onde,a.oque,a.valor,a.unidade||'']),why:x.porque,note:x.nota||'',cmp:!!x.comparar,
+      cover:x.capa?'capas/'+x.capa:null,reel:x.reel||''})).sort((a,b)=>b.n.localeCompare(a.n));
+  }catch(e){TIPS=[]}
+  TIPS.forEach(t=>{if(!t.cover)t.cover=makeCover(t)});
+  THEMES=['Todas',...new Set(TIPS.map(t=>t.tema))];
+  document.getElementById('chips').innerHTML=THEMES.map(x=>`<button class="chip" type="button" aria-pressed="${x===theme}">${x}</button>`).join('');
+  render();fromHash();}
+
+/* ---------- library grid ---------- */
+let THEMES=['Todas'];let theme='Todas';
+function render(){const q=document.getElementById('q').value.trim().toLowerCase();
+  const items=TIPS.filter(t=>(theme==='Todas'||t.tema===theme)&&(!q||(t.t+' '+t.k+' '+t.tema+' '+t.hook.join(' ')).toLowerCase().includes(q)));
+  document.getElementById('grid').innerHTML=items.map(t=>`<button class="cover" type="button" data-n="${t.n}" aria-label="Abrir ficha da dica ${t.n}: ${esc(t.t)}">
+    <span class="shot"><img src="${t.cover}" alt="" loading="lazy"><span class="badge">Nº ${t.n}</span></span>
+    <span class="ctitle">${esc(t.t)}</span><span class="ctema">${t.tema}</span></button>`).join('');
+  document.getElementById('empty').hidden=items.length>0;}
+document.getElementById('chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;theme=b.textContent;document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c===b));render();});
+document.getElementById('q').addEventListener('input',render);
+document.getElementById('grid').addEventListener('click',e=>{const b=e.target.closest('.cover');if(b)openTip(b.dataset.n)});
+document.getElementById('numform').addEventListener('submit',e=>{e.preventDefault();const v=document.getElementById('num').value.replace(/\D/g,'');const err=document.getElementById('err');
+  if(!v){err.textContent='Digita o número que aparece no final do vídeo.';err.hidden=false;return}
+  const n=v.padStart(2,'0');if(!TIPS.find(t=>t.n===n)){err.textContent=`A dica nº ${n} ainda não está aqui. Confere o número no final do vídeo.`;err.hidden=false;return}
+  err.hidden=true;openTip(n)});
+
+/* ---------- sheet ---------- */
+const sheet=document.getElementById('sheet'),scrim=document.getElementById('scrim'),body=document.getElementById('sheetBody');let lastFocus=null;
+function openTip(n,fromHash){const t=TIPS.find(x=>x.n===n);if(!t)return;lastFocus=document.activeElement;
+  body.innerHTML=`<div class="feat-top"><span class="bignum" aria-hidden="true">${t.n}</span><div class="feat-title"><small>Dica nº ${t.n} · ${t.tema.toLowerCase()}</small><h2 id="sheet-title">${esc(t.t)}</h2></div></div>
+   <p class="lead">${esc(t.lead)}</p>
+   ${t.cmp?`<div class="compare" role="slider" tabindex="0" aria-label="Comparar topo antes e depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><canvas width="1200" height="600"></canvas><span class="lbl l">Antes</span><span class="lbl r">Depois</span></div><p class="hint">Arraste pra comparar o topo antes e depois.</p>`:''}
+   <div class="tilt"><div class="ficha">${fichaHTML(t)}</div></div>
+   ${t.note?`<p class="note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(t.note)}</p>`:''}
+   <div class="actions">${t.reel?`<a class="btn btn-ink" href="${t.reel}" target="_blank" rel="noopener">Ver o reel</a>`:''}<button class="btn btn-line" type="button" data-share="${t.n}">Copiar link desta dica</button></div>`;
+  sheet.hidden=false;scrim.hidden=false;requestAnimationFrame(()=>{sheet.classList.add('open');scrim.classList.add('open')});
+  document.body.style.overflow='hidden';sheet.scrollTop=0;
+  const cmp=body.querySelector('.compare');if(cmp)initCompare(cmp);bindTilt();
+  if(!fromHash)history.replaceState(null,'','#dica-'+t.n);document.getElementById('close').focus();}
+function closeTip(){sheet.classList.remove('open');scrim.classList.remove('open');document.body.style.overflow='';
+  setTimeout(()=>{sheet.hidden=true;scrim.hidden=true},RM?0:280);history.replaceState(null,'',location.pathname+location.search);if(lastFocus)lastFocus.focus();}
+document.getElementById('close').addEventListener('click',closeTip);scrim.addEventListener('click',closeTip);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!sheet.hidden)closeTip()});
+function fromHash(){const m=location.hash.match(/^#dica-(\d+)$/);if(m)openTip(m[1].padStart(2,'0'),true)}
+window.addEventListener('hashchange',fromHash);
+
+/* ---------- copy ---------- */
+async function copyText(txt,btn,label){try{await navigator.clipboard.writeText(txt);btn.classList.add('done');btn.textContent='Copiado'}catch(e){btn.textContent=txt}setTimeout(()=>{btn.classList.remove('done');btn.textContent=label},1600)}
+document.addEventListener('click',e=>{const b=e.target.closest('.copy');if(b)copyText(b.dataset.copy,b,'Copiar')});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-share]');if(b)copyText(location.href.split('#')[0]+'#dica-'+b.dataset.share,b,'Copiar link desta dica')});
+document.getElementById('hash').addEventListener('click',e=>copyText('#dicasnossoprojeto3d',e.currentTarget,'#dicasnossoprojeto3d'));
+
+/* ---------- tilt card ---------- */
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function bindTilt(){document.querySelectorAll('.ficha').forEach(f=>{if(f.dataset.b)return;f.dataset.b=1;
+  const move=(cx,cy)=>{const r=f.getBoundingClientRect();const px=(cx-r.left)/r.width,py=(cy-r.top)/r.height;
+    f.style.setProperty('--mx',px*100+'%');f.style.setProperty('--my',py*100+'%');f.classList.add('live');
+    if(!RM)f.style.transform=`rotateY(${(px-.5)*10}deg) rotateX(${(.5-py)*8}deg)`;};
+  const end=()=>{f.classList.remove('live');f.style.transform=''};
+  f.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')move(e.clientX,e.clientY)});
+  f.addEventListener('pointerleave',end);
+  f.addEventListener('touchmove',e=>{const t=e.touches[0];move(t.clientX,t.clientY)},{passive:true});
+  f.addEventListener('touchend',end);});}
+
+/* ---------- shared drawing ---------- */
+function rng(s){return()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),lerp=(a,b,k)=>a+(b-a)*k,eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+
+/* ---------- isometric printer ---------- */
+(function(){
+const cv=document.getElementById('printer'),c=cv.getContext('2d');const W=cv.width,H=cv.height;
+const S=112,OX=W/2,OY=H*0.66,C30=Math.cos(Math.PI/6),S30=.5;
+const P=(x,y,z)=>[OX+(x-z)*C30*S,OY+(x+z)*S30*S-y*S];
+// part footprint: rounded rect in x/z
+const PW=1.7,PD=1.15,PR=.28,LAYERS=14,LH=.075;
+const foot=[];for(const [cx,cz,a0] of [[PW-PR,PD-PR,0],[-PW+PR,PD-PR,Math.PI/2],[-PW+PR,-PD+PR,Math.PI],[PW-PR,-PD+PR,Math.PI*1.5]]){for(let i=0;i<=8;i++){const a=a0+i/8*Math.PI/2;foot.push([cx+Math.cos(a)*PR,cz+Math.sin(a)*PR])}}
+const R=rng(11);const rough=[];for(let i=0;i<70;i++){const p=[];for(let k=0;k<=30;k++)p.push((R()-.5)*1.4);rough.push({p,a:.25+R()*.45,g:R(),gw:.05+R()*.15})}
+function poly(pts){c.beginPath();pts.forEach((p,i)=>i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1]));c.closePath()}
+function hull(pts){pts=pts.slice().sort((a,b)=>a[0]-b[0]||a[1]-b[1]);const cr=(o,a,b)=>(a[0]-o[0])*(b[1]-o[1])-(a[1]-o[1])*(b[0]-o[0]);const lo=[],up=[];
+  for(const p of pts){while(lo.length>=2&&cr(lo[lo.length-2],lo[lo.length-1],p)<=0)lo.pop();lo.push(p)}
+  for(const p of pts.slice().reverse()){while(up.length>=2&&cr(up[up.length-2],up[up.length-1],p)<=0)up.pop();up.push(p)}return lo.slice(0,-1).concat(up.slice(0,-1))}
+function clipX(xc,y0,y1){const L=4,pts=[];for(const x of [-L,xc])for(const z of [-L,L])for(const y of [y0-.05,y1+.05])pts.push(P(x,y,z));poly(hull(pts));c.clip()}
+function box(x0,x1,y0,y1,z0,z1,top,left,right){ // iso box faces visible: top, +x? we see faces with normals -? (front faces: +x and +z)
+  poly([P(x0,y1,z0),P(x1,y1,z0),P(x1,y1,z1),P(x0,y1,z1)]);c.fillStyle=top;c.fill();
+  poly([P(x0,y0,z1),P(x1,y0,z1),P(x1,y1,z1),P(x0,y1,z1)]);c.fillStyle=left;c.fill();
+  poly([P(x1,y0,z0),P(x1,y0,z1),P(x1,y1,z1),P(x1,y1,z0)]);c.fillStyle=right;c.fill();}
+function plate(){
+  box(-2.55,2.55,-.16,0,-1.85,1.85,'#2A292E','#1D1C21','#242328');
+  c.save();poly([P(-2.55,0,-1.85),P(2.55,0,-1.85),P(2.55,0,1.85),P(-2.55,0,1.85)]);c.clip();
+  const g=c.createLinearGradient(...P(-2.5,0,-1.8),...P(2.5,0,1.8));g.addColorStop(0,'#3A3833');g.addColorStop(1,'#2B2A2E');c.fillStyle=g;c.fillRect(0,0,W,H);
+  c.fillStyle='rgba(201,162,75,.10)';const r2=rng(3);for(let i=0;i<900;i++){const [x,y]=P(-2.5+r2()*5,0,-1.8+r2()*3.6);c.fillRect(x,y,2,2)}
+  c.restore();}
+const GOLD=['#E3C67E','#C9A24B','#A9832F','#8C6A24'];
+function layer(i,top){ // draws side bands + top for layer i
+  const y0=i*LH,y1=y0+LH;
+  // sides: edges facing viewer (normal with +x or +z component)
+  for(let k=0;k<foot.length;k++){const a=foot[k],b=foot[(k+1)%foot.length];const nx=b[1]-a[1],nz=-(b[0]-a[0]);// outward normal (ccw)
+    const vis=nx+nz;if(vis<=0)continue;const lit=clamp((nx*.9-nz*.15)/Math.hypot(nx,nz)*.5+.5);
+    poly([P(a[0],y0,a[1]),P(b[0],y0,b[1]),P(b[0],y1,b[1]),P(a[0],y1,a[1])]);
+    c.fillStyle=`rgb(${lerp(150,230,lit)|0},${lerp(112,190,lit)|0},${lerp(40,110,lit)|0})`;c.fill();}
+  // layer line
+  c.strokeStyle='rgba(90,64,18,.35)';c.lineWidth=1.2;c.beginPath();let st=false;
+  for(let k=0;k<=foot.length;k++){const a=foot[k%foot.length],b=foot[(k+1)%foot.length];const nx=b[1]-a[1],nz=-(b[0]-a[0]);const pp=P(a[0],y0,a[1]);if(nx+nz>0){st?c.lineTo(...pp):c.moveTo(...pp);st=true}else st=false}c.stroke();
+  // top
+  poly(foot.map(f=>P(f[0],y1,f[1])));const g=c.createLinearGradient(...P(-PW,y1,-PD),...P(PW,y1,PD));g.addColorStop(0,'#F0D894');g.addColorStop(.55,'#D6B05A');g.addColorStop(1,'#B88E3A');c.fillStyle=g;c.fill();
+  return y1;}
+function topTexture(y1,smoothX,glint){ // rough lines on top, smooth where x<=smoothX
+  c.save();poly(foot.map(f=>P(f[0],y1,f[1])));c.clip();
+  c.save();if(smoothX>-9){const pts=[];const L=4;for(const x of [smoothX,L])for(const z of [-L,L])pts.push(P(x,y1,z));poly(hull(pts));c.clip()}
+  for(let i=0;i<rough.length;i++){const r=rough[i];const u=-2.2+i*(4.4/rough.length);
+    c.strokeStyle=`rgba(96,66,14,${r.a+.2})`;c.lineWidth=3.2;c.beginPath();
+    r.p.forEach((d,k)=>{const v=-2.2+k*(4.4/30);const x=(u+v)*.7,z=(v-u)*.7;const pp=P(x+d*.02,y1,z);k?c.lineTo(pp[0],pp[1]+d):c.moveTo(pp[0],pp[1]+d)});c.stroke();}
+  c.restore();
+  if(glint!=null){const gx=lerp(-2.5,2.5,glint);const a=P(gx-.5,y1,-1.2),b=P(gx+.5,y1,1.2);const g=c.createLinearGradient(a[0],a[1],b[0],b[1]);
+    g.addColorStop(0,'rgba(255,255,255,0)');g.addColorStop(.5,'rgba(255,250,230,.75)');g.addColorStop(1,'rgba(255,255,255,0)');c.fillStyle=g;c.fillRect(0,0,W,H)}
+  c.restore();}
+function toolhead(x,y,z,heat){
+  // rail along x
+  box(-2.45,2.45,y+.62,y+.74,z-.07,z+.07,'#3A393F','#232227','#2E2D33');
+  const hx=x,hz=z;
+  // nozzle cone
+  const t=P(hx,y+.02,hz),l=P(hx-.09,y+.2,hz),r=P(hx+.09,y+.2,hz);c.beginPath();c.moveTo(...t);c.lineTo(...l);c.lineTo(...r);c.closePath();c.fillStyle='#C99A3A';c.fill();
+  if(heat>0){const g=c.createRadialGradient(t[0],t[1],0,t[0],t[1],40);g.addColorStop(0,`rgba(255,170,60,${.55*heat})`);g.addColorStop(1,'rgba(255,170,60,0)');c.fillStyle=g;c.beginPath();c.arc(t[0],t[1],40,0,7);c.fill()}
+  box(hx-.32,hx+.32,y+.2,y+.86,hz-.3,hz+.3,'#F4F2EE','#D8D5CF','#E8E5E0');
+  const f=P(hx+.32,y+.62,hz);c.fillStyle='#17161A';c.beginPath();c.arc(f[0]-10,f[1]+2,13,0,7);c.fill();
+  c.fillStyle='#C9A24B';c.beginPath();c.arc(f[0]-10,f[1]+2,4,0,7);c.fill();
+}
+const PRINT=LAYERS*.32,IRON=1.5,GL=.9,TOTAL=PRINT+.4+IRON+.2+GL;
+let t0=null,done=false;const st=document.getElementById('st'),rep=document.getElementById('replay');
+function frame(now){if(t0==null)t0=now;let t=(now-t0)/1000;if(RM)t=TOTAL;
+  c.clearRect(0,0,W,H);
+  // soft shadow
+  const sh=P(0,0,0);const g=c.createRadialGradient(sh[0],sh[1]+40,10,sh[0],sh[1]+40,520);g.addColorStop(0,'rgba(23,22,26,.16)');g.addColorStop(1,'rgba(23,22,26,0)');c.fillStyle=g;c.fillRect(0,0,W,H);
+  plate();
+  const L=Math.min(LAYERS,Math.floor(t/.32));const part=(t/.32)%1;
+  let y1=0;for(let i=0;i<Math.min(L,LAYERS);i++)y1=layer(i);if(t<PRINT&&L>0)topTexture(y1,-99,null);
+  let hx=2.4,hy=y1+.05,hz=0,heat=0;
+  if(t<PRINT){const xc=lerp(-PW-.05,PW+.05,part);c.save();clipX(xc,L*LH,L*LH+LH);layer(L);c.restore();
+    hx=xc;hy=(L+1)*LH+.02;hz=Math.sin(part*Math.PI*10)*PD*.85;heat=1;const le=document.getElementById('lay');if(le)le.textContent=L+1;}
+  else{const topY=LAYERS*LH;const ik=clamp((t-PRINT-.4)/IRON);const gk=clamp((t-PRINT-.4-IRON-.2)/GL);
+    const sx=t<PRINT+.4?-99:lerp(-PW-.1,PW+.1,eio(ik));topTexture(topY,sx,gk>0&&gk<1?gk:null);
+    if(t<PRINT+.4+IRON){hx=t<PRINT+.4?PW+.05:sx;hy=topY+.03;hz=Math.sin(ik*Math.PI*8)*PD*.8;heat=.8;st.innerHTML='Alisando o topo com o ajuste da dica <b>01</b>'}
+    else{const pk=eio(clamp((t-PRINT-.4-IRON)/.8));hx=lerp(PW+.1,2.2,pk);hy=topY+.03+pk*.25;hz=lerp(0,-.4,pk);heat=1-pk;st.innerHTML='Topo liso. Impressão concluída'}}
+  toolhead(hx,hy,hz,heat);
+  if(t<TOTAL+.9)requestAnimationFrame(frame);else{rep.hidden=false;done=true}}
+function start(){t0=null;rep.hidden=true;st.innerHTML='Imprimindo camada <b id="lay">1</b> de 14';requestAnimationFrame(frame)}
+rep.addEventListener('click',()=>{start()});
+window.__printerAt=t=>{t0=performance.now()-t*1000};
+requestAnimationFrame(frame);
+})();
+
+/* ---------- before/after compare ---------- */
+function initCompare(box){
+const cv=box.querySelector('canvas'),c=cv.getContext('2d'),W=cv.width,H=cv.height;
+const R=rng(7),lines=[];for(let i=0;i<110;i++){const p=[];for(let k=0;k<=40;k++)p.push((R()-.5)*6);lines.push({p,a:.3+R()*.4,gx:R(),gw:.05+R()*.18})}
+const pits=[];for(let i=0;i<60;i++)pits.push([R(),R(),2+R()*6]);
+let pos=.5;
+function draw(){c.clearRect(0,0,W,H);
+  const g=c.createLinearGradient(0,0,W,H);g.addColorStop(0,'#A1C155');g.addColorStop(1,'#7EA233');c.fillStyle=g;c.fillRect(0,0,W,H);
+  c.save();c.translate(W/2,H/2);c.rotate(-Math.PI/4);const L=Math.hypot(W,H),sp=L/lines.length;
+  lines.forEach((r,i)=>{const y=-L/2+i*sp;c.strokeStyle=`rgba(50,72,12,${r.a})`;c.lineWidth=3;c.beginPath();r.p.forEach((d,k)=>{const x=-L/2+k*L/40;k?c.lineTo(x,y+d):c.moveTo(x,y+d)});c.stroke();
+    c.strokeStyle='rgba(230,245,195,.5)';c.lineWidth=2.5;c.beginPath();c.moveTo(-L/2+r.gx*L,y+sp/2);c.lineTo(-L/2+(r.gx+r.gw)*L,y+sp/2);c.stroke()});c.restore();
+  pits.forEach(p=>{c.fillStyle='rgba(38,56,8,.55)';c.beginPath();c.ellipse(p[0]*W,p[1]*H,p[2]*1.6,p[2],-.7,0,7);c.fill()});
+  const x=pos*W;c.save();c.beginPath();c.rect(x,0,W-x,H);c.clip();
+  const g2=c.createLinearGradient(0,0,W,H);g2.addColorStop(0,'#B0CF66');g2.addColorStop(.5,'#94B744');g2.addColorStop(1,'#82A637');c.fillStyle=g2;c.fillRect(0,0,W,H);
+  c.translate(W/2,H/2);c.rotate(-Math.PI/4);c.strokeStyle='rgba(60,84,20,.08)';c.lineWidth=2;for(let y=-L/2;y<L/2;y+=11){c.beginPath();c.moveTo(-L/2,y);c.lineTo(L/2,y);c.stroke()}
+  c.setTransform(1,0,0,1,0,0);const gl=c.createLinearGradient(W*.55,0,W*.85,H*.6);gl.addColorStop(0,'rgba(255,255,255,0)');gl.addColorStop(.5,'rgba(255,255,255,.35)');gl.addColorStop(1,'rgba(255,255,255,0)');c.fillStyle=gl;c.fillRect(0,0,W,H);c.restore();
+  c.fillStyle='#fff';c.fillRect(x-4,0,8,H);c.shadowColor='rgba(0,0,0,.25)';c.shadowBlur=20;c.beginPath();c.arc(x,H/2,44,0,7);c.fill();c.shadowBlur=0;
+  c.fillStyle='#17161A';[[-1],[1]].forEach(([d])=>{c.beginPath();c.moveTo(x+d*26,H/2);c.lineTo(x+d*10,H/2-13);c.lineTo(x+d*10,H/2+13);c.fill()});
+  box.setAttribute('aria-valuenow',Math.round(pos*100));}
+function set(clientX){const r=box.getBoundingClientRect();pos=clamp((clientX-r.left)/r.width,.04,.96);draw()}
+let drag=false;box.addEventListener('pointerdown',e=>{drag=true;box.setPointerCapture(e.pointerId);set(e.clientX)});
+box.addEventListener('pointermove',e=>{if(drag)set(e.clientX)});box.addEventListener('pointerup',()=>drag=false);
+box.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){pos=clamp(pos-.05,.04,.96);draw()}if(e.key==='ArrowRight'){pos=clamp(pos+.05,.04,.96);draw()}});
+draw();
+}
+loadTips();
+</script>
+
+</body>
+</html>

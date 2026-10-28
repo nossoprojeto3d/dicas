@@ -1,0 +1,37 @@
+{
+  "serie": "#dicasnossoprojeto3d",
+  "dicas": [
+    {
+      "n": 1,
+      "titulo": "Topo liso em 2 ajustes",
+      "tema": "Acabamento",
+      "gancho": [
+        "O topo da sua peça",
+        "de impressão 3D",
+        "sai assim?"
+      ],
+      "lead": "Se a última camada da sua peça sai riscada ou com vãozinhos entre as linhas, muda estes dois valores no fatiador e imprime de novo.",
+      "ajustes": [
+        {
+          "onde": "Aba Qualidade",
+          "oque": "Taxa de fluxo da superfície superior",
+          "valor": "1.1",
+          "unidade": ""
+        },
+        {
+          "onde": "Aba Velocidade",
+          "oque": "Superfície superior",
+          "valor": "20",
+          "unidade": "mm/s"
+        }
+      ],
+      "porque": "10% a mais de material fecha os vãos entre as linhas, e o bico mais devagar no topo deixa o acabamento liso e uniforme.",
+      "nota": "Leva uns minutinhos a mais de impressão. Vale.",
+      "busca": "topo superficie superior liso riscado fluxo velocidade lixa",
+      "comparar": true,
+      "capa": "01.jpg",
+      "video": "reel_topo_liso.mp4",
+      "reel": ""
+    }
+  ]
+}
