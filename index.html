@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Sans:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: coluna de celular (máx. 600px). Topo = impressora isométrica imprimindo ao vivo; depois a dica mais nova com ficha que inclina; biblioteca em linhas separadas por "linhas de camada". */
+/* Layout: coluna de celular (máx. 600px; 880px no computador). Topo = título e campo do número na primeira tela; depois a faixa da impressora imprimindo ao vivo; biblioteca em grade separada por "linhas de camada". */
 :root{
   --bg:#FFFFFF; --paper:#FAF8F4; --ink:#17161A; --muted:#6F6A60; --line:#EAE4D8;
   --gold:#C9A24B; --gold-deep:#8F6B22; --gold-soft:#F5EDDB; --night:#1C1B20; --on-night:#FBF8F1; --ok:#1F9D55;
@@ -50,15 +50,15 @@ a{color:inherit}
 .btn-sm{padding:8px 14px;font-size:.85rem}
 
 /* hero */
-.hero{display:flex;flex-direction:column;gap:10px}
+.hero{display:flex;flex-direction:column;gap:14px}
 .stage{position:relative;border-radius:28px;background:radial-gradient(120% 90% at 50% 18%,var(--paper),var(--bg) 70%);overflow:hidden}
-.stage canvas{display:block;width:100%;height:auto;aspect-ratio:600/400}
+.stage canvas{display:block;width:100%;height:auto;aspect-ratio:1200/560}
 .stage [hidden]{display:none!important}
 .stage .replay{position:absolute;right:12px;bottom:12px}
 .status{position:absolute;left:14px;top:12px;z-index:2;padding:4px 10px 4px 8px;border-radius:999px;background:color-mix(in srgb,var(--bg) 82%,transparent);display:flex;align-items:center;gap:8px;font:600 .82rem var(--f-body);color:var(--muted)}
 .status i{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px var(--gold-soft)}
 .status b{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600}
-h1{font-family:var(--f-display);font-weight:900;font-size:clamp(3rem,13vw,4.6rem);line-height:.88;letter-spacing:-.005em;margin:6px 0 0;text-wrap:balance;text-transform:uppercase}
+h1{font-family:var(--f-display);font-weight:900;font-size:clamp(2.8rem,12vw,4.6rem);line-height:.88;letter-spacing:-.005em;margin:0;text-wrap:balance;text-transform:uppercase}
 .sub{margin:0;color:var(--muted);font-size:1.05rem;max-width:34ch;text-wrap:pretty}
 .sub b{color:var(--ink);font-weight:600}
 
@@ -134,10 +134,10 @@ details.item[open] .chev{transform:rotate(180deg)}
 .numform{display:flex;align-items:center;gap:10px;background:var(--paper);border:1.5px solid var(--line);border-radius:20px;padding:8px 8px 8px 16px}
 .numform label{font-weight:600;color:var(--muted);flex:none}
 .numform input{flex:1;min-width:0;width:100%;border:0;background:transparent;color:var(--ink);font:900 2.2rem/1 var(--f-display);font-variant-numeric:tabular-nums;padding:2px 0}
-.numform input::placeholder{color:var(--line)}
+.numform input::placeholder{color:var(--muted);opacity:.4}
 .numform input:focus{outline:none}
 .numform:focus-within{border-color:var(--gold)}
-.err{margin:-6px 0 0;color:#C2383D;font-size:.9rem}
+.err{margin:-4px 0 0;color:#C2383D;font-size:.9rem}
 .tools{display:flex;flex-direction:column;gap:10px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}
 .cover{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:6px;min-width:0}
@@ -145,10 +145,12 @@ details.item[open] .chev{transform:rotate(180deg)}
 .shot{position:relative;display:block;border-radius:16px;overflow:hidden;aspect-ratio:3/4;background:#fff;box-shadow:0 0 0 1px var(--line),0 14px 30px -18px rgba(23,22,26,.45);transition:transform .25s}
 .cover:hover .shot,.cover:active .shot{transform:translateY(-3px) rotate(-.6deg)}
 .shot img{width:100%;height:100%;object-fit:cover;display:block}
-.badge{position:absolute;left:8px;bottom:8px;background:var(--night);color:var(--on-night);font:900 1.15rem/1 var(--f-display);padding:6px 10px 5px;border-radius:10px;box-shadow:0 0 0 1.5px var(--gold) inset}
+.cinfo{display:flex;align-items:baseline;gap:8px;min-width:0}
+.cnum{flex:none;font:900 1.35rem/1 var(--f-display);color:var(--gold);font-variant-numeric:tabular-nums}
 .exb{position:absolute;right:8px;bottom:10px;background:rgba(255,255,255,.92);color:#6F6A60;font:600 .7rem var(--f-body);padding:3px 8px;border-radius:999px}
 .ctitle{font-weight:600;line-height:1.25;font-size:.95rem}
 .ctema{font-size:.8rem;color:var(--muted);margin-top:-4px}
+@media (min-width:900px){.wrap{max-width:880px}.hero,.stage{max-width:600px}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 18px}}
 
 /* sheet */
 .scrim{position:fixed;inset:0;background:rgba(14,13,16,.5);opacity:0;transition:opacity .28s;z-index:20}
@@ -178,27 +180,27 @@ footer p{margin:0;color:var(--muted)}
   </header>
 
   <section class="hero" aria-labelledby="h1">
-    <div class="stage">
-      <canvas id="printer" width="1200" height="800" aria-label="Impressora 3D imprimindo uma peça camada por camada e alisando o topo"></canvas>
-      <div class="status" aria-live="polite"><i></i><span id="st">Imprimindo camada <b id="lay">1</b> de 14</span></div>
-      <button class="btn btn-line btn-sm replay" id="replay" type="button" hidden>Imprimir de novo</button>
-    </div>
     <h1 id="h1">Dicas de impressão 3D</h1>
-    <p class="sub">Comentou <b>DICA</b> no reel? Toca na capa do vídeo que você viu ou digita o <b>número que aparece no final dele</b>.</p>
-  </section>
-
-  <div class="layers" aria-hidden="true"></div>
-
-  <section class="finder" aria-labelledby="find-title">
-    <h2 id="find-title" class="sec">Qual dica você viu?</h2>
+    <p class="sub">Comentou <b>DICA</b> no reel? Digita o <b>número que aparece no final do vídeo</b> ou toca na capa dele.</p>
     <form class="numform" id="numform" novalidate>
       <label for="num">Dica nº</label>
       <input id="num" inputmode="numeric" pattern="[0-9]*" maxlength="3" placeholder="01" autocomplete="off">
       <button class="btn btn-ink" type="submit">Abrir ficha</button>
     </form>
     <p class="err" id="err" hidden></p>
+    <div class="stage">
+      <canvas id="printer" width="1200" height="560" aria-label="Impressora 3D imprimindo uma peça camada por camada e alisando o topo"></canvas>
+      <div class="status" aria-live="polite"><i></i><span id="st">Imprimindo camada <b id="lay">1</b> de 14</span></div>
+      <button class="btn btn-line btn-sm replay" id="replay" type="button" hidden>Imprimir de novo</button>
+    </div>
+  </section>
+
+  <div class="layers" aria-hidden="true"></div>
+
+  <section class="finder" aria-labelledby="find-title">
+    <h2 id="find-title" class="sec">Todas as dicas</h2>
     <div class="tools">
-      <input class="search" id="q" type="search" placeholder="Ou busca pelo problema: fiapo, primeira camada…" aria-label="Buscar dica pelo problema">
+      <input class="search" id="q" type="search" placeholder="Busca pelo problema: fiapo, primeira camada…" aria-label="Buscar dica pelo problema">
       <div class="chips" role="toolbar" aria-label="Filtrar por tema" id="chips"></div>
     </div>
     <div class="grid" id="grid"></div>
@@ -256,8 +258,8 @@ let THEMES=['Todas'];let theme='Todas';
 function render(){const q=document.getElementById('q').value.trim().toLowerCase();
   const items=TIPS.filter(t=>(theme==='Todas'||t.tema===theme)&&(!q||(t.t+' '+t.k+' '+t.tema+' '+t.hook.join(' ')).toLowerCase().includes(q)));
   document.getElementById('grid').innerHTML=items.map(t=>`<button class="cover" type="button" data-n="${t.n}" aria-label="Abrir ficha da dica ${t.n}: ${esc(t.t)}">
-    <span class="shot"><img src="${t.cover}" alt="" loading="lazy"><span class="badge">Nº ${t.n}</span></span>
-    <span class="ctitle">${esc(t.t)}</span><span class="ctema">${t.tema}</span></button>`).join('');
+    <span class="shot"><img src="${t.cover}" alt="" loading="lazy"></span>
+    <span class="cinfo"><span class="cnum">${t.n}</span><span class="ctitle">${esc(t.t)}</span></span><span class="ctema">${t.tema}</span></button>`).join('');
   document.getElementById('empty').hidden=items.length>0;}
 document.getElementById('chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;theme=b.textContent;document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c===b));render();});
 document.getElementById('q').addEventListener('input',render);
@@ -312,7 +314,7 @@ const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),lerp=(a,b,k)=>a+(b-a)*k,eio=x
 /* ---------- isometric printer ---------- */
 (function(){
 const cv=document.getElementById('printer'),c=cv.getContext('2d');const W=cv.width,H=cv.height;
-const S=112,OX=W/2,OY=H*0.66,C30=Math.cos(Math.PI/6),S30=.5;
+const S=88,OX=W/2,OY=H*0.55,C30=Math.cos(Math.PI/6),S30=.5;
 const P=(x,y,z)=>[OX+(x-z)*C30*S,OY+(x+z)*S30*S-y*S];
 // part footprint: rounded rect in x/z
 const PW=1.7,PD=1.15,PR=.28,LAYERS=14,LH=.075;
