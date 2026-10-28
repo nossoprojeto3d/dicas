@@ -29,8 +29,44 @@
       "nota": "Leva uns minutinhos a mais de impressão. Vale.",
       "busca": "topo superficie superior liso riscado fluxo velocidade lixa",
       "comparar": true,
-      "capa": "01.jpg",
       "video": "reel_topo_liso.mp4",
+      "reel": ""
+    },
+    {
+      "n": 2,
+      "titulo": "Fim da teia de aranha em 3 ajustes",
+      "tema": "Problemas",
+      "gancho": [
+        "Sua impressão 3D",
+        "sai com teia",
+        "de aranha?"
+      ],
+      "lead": "Se a peça sai cheia de fiapos entre uma parte e outra, é plástico escorrendo do bico enquanto ele viaja. Muda estes três ajustes no fatiador e imprime de novo.",
+      "ajustes": [
+        {
+          "onde": "Filamento",
+          "oque": "Temperatura do bico",
+          "valor": "−5 a −10 (ex.: 220 → 210)",
+          "unidade": "°C"
+        },
+        {
+          "onde": "Retração",
+          "oque": "Comprimento da retração",
+          "valor": "1.2",
+          "unidade": "mm"
+        },
+        {
+          "onde": "Deslocamento",
+          "oque": "Evitar cruzar paredes",
+          "valor": "Ligado",
+          "unidade": ""
+        }
+      ],
+      "porque": "Plástico quente demais escorre e vira fio; a retração puxa o filamento de volta antes do bico viajar; e evitando cruzar paredes o bico passa por dentro da peça, escondendo o fiapo.",
+      "nota": "O valor de retração é para extrusora direta; em bowden o número é maior. Ainda com fiapo? Seca o filamento, que umidade também causa teia.",
+      "busca": "teia de aranha fiapo fiapos stringing fio cabelo retração temperatura bico cruzar paredes umidade secar filamento",
+      "comparar": false,
+      "video": "reel_02_teia-de-aranha.mp4",
       "reel": ""
     }
   ]
