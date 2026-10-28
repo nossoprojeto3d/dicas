@@ -29,8 +29,7 @@
       "nota": "Leva uns minutinhos a mais de impressão. Vale.",
       "busca": "topo superficie superior liso riscado fluxo velocidade lixa",
       "comparar": true,
-      "video": "reel_topo_liso.mp4",
-      "reel": ""
+      "video": "reel_topo_liso.mp4"
     },
     {
       "n": 2,
@@ -66,8 +65,7 @@
       "nota": "O valor de retração é para extrusora direta; em bowden o número é maior. Ainda com fiapo? Seca o filamento, que umidade também causa teia.",
       "busca": "teia de aranha fiapo fiapos stringing fio cabelo retração temperatura bico cruzar paredes umidade secar filamento",
       "comparar": false,
-      "video": "reel_02_teia-de-aranha.mp4",
-      "reel": ""
+      "video": "reel_02_teia-de-aranha.mp4"
     }
   ]
 }

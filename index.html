@@ -233,7 +233,7 @@ async function loadTips(){
   try{const r=await fetch('dicas.json',{cache:'no-cache'});const d=await r.json();
     TIPS=d.dicas.map(x=>({n:String(x.n).padStart(2,'0'),t:x.titulo,tema:x.tema,hook:x.gancho,lead:x.lead,k:(x.busca||''),
       sets:x.ajustes.map(a=>[a.onde,a.oque,a.valor,a.unidade||'']),why:x.porque,note:x.nota||'',cmp:!!x.comparar,
-      reel:x.reel||''})).sort((a,b)=>b.n.localeCompare(a.n));
+      })).sort((a,b)=>b.n.localeCompare(a.n));
   }catch(e){TIPS=[]}
   THEMES=['Todas',...new Set(TIPS.map(t=>t.tema))];
   document.getElementById('chips').innerHTML=THEMES.map(x=>`<button class="chip" type="button" data-tema="${esc(x)}" aria-pressed="${x===theme}">${x==='Todas'?x:`<span class="dot" style="--c:${themeColor(x)}"></span>${esc(x)}`}</button>`).join('');
@@ -271,7 +271,7 @@ function openTip(n,fromHash){const t=TIPS.find(x=>x.n===n);if(!t)return;lastFocu
    ${t.cmp?`<div class="compare" role="slider" tabindex="0" aria-label="Comparar topo antes e depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><canvas width="1200" height="600"></canvas><span class="lbl l">Antes</span><span class="lbl r">Depois</span></div><p class="hint">Arraste pra comparar o topo antes e depois.</p>`:''}
    <div class="card">${setsHTML(t)}${whyHTML(t)}</div>
    ${t.note?`<p class="note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(t.note)}</p>`:''}
-   <div class="actions"><button class="btn btn-ink" type="button" data-copyall="${t.n}">Copiar tudo</button>${t.reel?`<a class="btn btn-line" href="${t.reel}" target="_blank" rel="noopener">Ver o reel</a>`:''}</div>`;
+   <div class="actions"><button class="btn btn-ink" type="button" data-copyall="${t.n}">Copiar tudo</button></div>`;
   sheet.hidden=false;scrim.hidden=false;requestAnimationFrame(()=>{sheet.classList.add('open');scrim.classList.add('open')});
   document.body.style.overflow='hidden';sheet.scrollTop=0;
   const cmp=body.querySelector('.compare');if(cmp)initCompare(cmp);
