@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Sans:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: coluna de celular (máx. 600px; 880px no computador). Topo = título e campo do número na primeira tela; depois a faixa da impressora imprimindo ao vivo; biblioteca em grade separada por "linhas de camada". */
+/* Layout: coluna de celular (máx. 600px). No computador (≥960px): barra lateral fixa com título, número, busca e filtros; capas à direita. Biblioteca em grade separada por "linhas de camada". */
 :root{
   --bg:#FFFFFF; --paper:#FAF8F4; --ink:#17161A; --muted:#6F6A60; --line:#EAE4D8;
   --gold:#C9A24B; --gold-deep:#8F6B22; --gold-soft:#F5EDDB; --night:#1C1B20; --on-night:#FBF8F1; --ok:#1F9D55;
@@ -50,14 +50,8 @@ a{color:inherit}
 .btn-sm{padding:8px 14px;font-size:.85rem}
 
 /* hero */
-.hero{display:flex;flex-direction:column;gap:14px}
-.stage{position:relative;border-radius:28px;background:radial-gradient(120% 90% at 50% 18%,var(--paper),var(--bg) 70%);overflow:hidden}
-.stage canvas{display:block;width:100%;height:auto;aspect-ratio:1200/560}
-.stage [hidden]{display:none!important}
-.stage .replay{position:absolute;right:12px;bottom:12px}
-.status{position:absolute;left:14px;top:12px;z-index:2;padding:4px 10px 4px 8px;border-radius:999px;background:color-mix(in srgb,var(--bg) 82%,transparent);display:flex;align-items:center;gap:8px;font:600 .82rem var(--f-body);color:var(--muted)}
-.status i{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px var(--gold-soft)}
-.status b{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600}
+.hero{display:flex;flex-direction:column;gap:12px}
+.hero .numform{margin-top:10px}
 h1{font-family:var(--f-display);font-weight:900;font-size:clamp(2.8rem,12vw,4.6rem);line-height:.88;letter-spacing:-.005em;margin:0;text-wrap:balance;text-transform:uppercase}
 .sub{margin:0;color:var(--muted);font-size:1.05rem;max-width:34ch;text-wrap:pretty}
 .sub b{color:var(--ink);font-weight:600}
@@ -140,17 +134,32 @@ details.item[open] .chev{transform:rotate(180deg)}
 .err{margin:-4px 0 0;color:#C2383D;font-size:.9rem}
 .tools{display:flex;flex-direction:column;gap:10px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}
-.cover{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:6px;min-width:0}
+.cover{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;min-width:0}
 .cover:focus-visible{outline:3px solid var(--gold);outline-offset:4px;border-radius:16px}
 .shot{position:relative;display:block;border-radius:16px;overflow:hidden;aspect-ratio:3/4;background:#fff;box-shadow:0 0 0 1px var(--line),0 14px 30px -18px rgba(23,22,26,.45);transition:transform .25s}
 .cover:hover .shot,.cover:active .shot{transform:translateY(-3px) rotate(-.6deg)}
 .shot img{width:100%;height:100%;object-fit:cover;display:block}
-.cinfo{display:flex;align-items:baseline;gap:8px;min-width:0}
+.cinfo{display:grid;grid-template-columns:auto 1fr;column-gap:8px;align-items:baseline;min-width:0}
+.ctxt{display:flex;flex-direction:column;gap:3px;min-width:0}
 .cnum{flex:none;font:900 1.35rem/1 var(--f-display);color:var(--gold);font-variant-numeric:tabular-nums}
 .exb{position:absolute;right:8px;bottom:10px;background:rgba(255,255,255,.92);color:#6F6A60;font:600 .7rem var(--f-body);padding:3px 8px;border-radius:999px}
 .ctitle{font-weight:600;line-height:1.25;font-size:.95rem}
-.ctema{font-size:.8rem;color:var(--muted);margin-top:-4px}
-@media (min-width:900px){.wrap{max-width:880px}.hero,.stage{max-width:600px}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 18px}}
+.ctema{font-size:.8rem;color:var(--muted)}
+/* celular: barra lateral e biblioteca se desfazem e a ordem volta a ser título → "Todas as dicas" → busca → capas */
+.side,.finder{display:contents}
+.top{order:0}.hero{order:1}.layers-mid{order:2}.sec{order:3}.tools{order:4}.grid{order:5}.empty{order:6}.wrap>.layers:not(.layers-mid){order:7}footer{order:8}
+.tools,.grid,.empty{margin-top:-18px}
+@media (min-width:960px){
+  .wrap{max-width:1180px;display:grid;grid-template-columns:360px minmax(0,1fr);column-gap:56px;row-gap:34px;align-items:start}
+  .top,.wrap>.layers,footer{grid-column:1 / -1}
+  .layers-mid{display:none}
+  .side{display:flex;flex-direction:column;gap:22px;position:sticky;top:24px;grid-column:1}
+  .finder{display:flex;grid-column:2}
+  .tools,.grid,.empty{margin-top:0}
+  h1{font-size:3.9rem}
+  .chips{flex-wrap:wrap;overflow:visible}
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 20px}
+}
 
 /* sheet */
 .scrim{position:fixed;inset:0;background:rgba(14,13,16,.5);opacity:0;transition:opacity .28s;z-index:20}
@@ -169,6 +178,13 @@ footer{display:flex;flex-direction:column;align-items:center;gap:12px;text-align
 footer img{width:64px;height:auto}
 footer p{margin:0;color:var(--muted)}
 .hash{font:800 1.5rem var(--f-display);color:var(--gold-deep);background:none;border:0;cursor:pointer;padding:4px 8px;text-transform:lowercase}
+/* computador: ficha abre como janela central */
+@media (min-width:960px){
+  .sheet{left:50%;right:auto;top:50%;bottom:auto;width:min(640px,92vw);max-height:88vh;border-radius:28px;padding-bottom:28px;
+    opacity:0;transform:translate(-50%,-46%) scale(.98);transition:transform .3s cubic-bezier(.2,.8,.2,1),opacity .2s}
+  .sheet.open{opacity:1;transform:translate(-50%,-50%)}
+  .grab{display:none}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
@@ -179,6 +195,7 @@ footer p{margin:0;color:var(--muted)}
     <a class="btn btn-ink btn-sm" href="https://www.instagram.com/nossoprojeto3d/" target="_blank" rel="noopener">Seguir</a>
   </header>
 
+  <aside class="side">
   <section class="hero" aria-labelledby="h1">
     <h1 id="h1">Dicas de impressão 3D</h1>
     <p class="sub">Comentou <b>DICA</b> no reel? Digita o <b>número que aparece no final do vídeo</b> ou toca na capa dele.</p>
@@ -188,21 +205,17 @@ footer p{margin:0;color:var(--muted)}
       <button class="btn btn-ink" type="submit">Abrir ficha</button>
     </form>
     <p class="err" id="err" hidden></p>
-    <div class="stage">
-      <canvas id="printer" width="1200" height="560" aria-label="Impressora 3D imprimindo uma peça camada por camada e alisando o topo"></canvas>
-      <div class="status" aria-live="polite"><i></i><span id="st">Imprimindo camada <b id="lay">1</b> de 14</span></div>
-      <button class="btn btn-line btn-sm replay" id="replay" type="button" hidden>Imprimir de novo</button>
-    </div>
   </section>
+  <div class="tools">
+    <input class="search" id="q" type="search" placeholder="Busca: fiapo, primeira camada…" aria-label="Buscar dica pelo problema">
+    <div class="chips" role="toolbar" aria-label="Filtrar por tema" id="chips"></div>
+  </div>
+  </aside>
 
-  <div class="layers" aria-hidden="true"></div>
+  <div class="layers layers-mid" aria-hidden="true"></div>
 
   <section class="finder" aria-labelledby="find-title">
     <h2 id="find-title" class="sec">Todas as dicas</h2>
-    <div class="tools">
-      <input class="search" id="q" type="search" placeholder="Busca pelo problema: fiapo, primeira camada…" aria-label="Buscar dica pelo problema">
-      <div class="chips" role="toolbar" aria-label="Filtrar por tema" id="chips"></div>
-    </div>
     <div class="grid" id="grid"></div>
     <p class="empty" id="empty" hidden>Nenhuma dica encontrada. Comenta no reel o que você quer ver na série.</p>
   </section>
@@ -259,7 +272,7 @@ function render(){const q=document.getElementById('q').value.trim().toLowerCase(
   const items=TIPS.filter(t=>(theme==='Todas'||t.tema===theme)&&(!q||(t.t+' '+t.k+' '+t.tema+' '+t.hook.join(' ')).toLowerCase().includes(q)));
   document.getElementById('grid').innerHTML=items.map(t=>`<button class="cover" type="button" data-n="${t.n}" aria-label="Abrir ficha da dica ${t.n}: ${esc(t.t)}">
     <span class="shot"><img src="${t.cover}" alt="" loading="lazy"></span>
-    <span class="cinfo"><span class="cnum">${t.n}</span><span class="ctitle">${esc(t.t)}</span></span><span class="ctema">${t.tema}</span></button>`).join('');
+    <span class="cinfo"><span class="cnum">${t.n}</span><span class="ctxt"><span class="ctitle">${esc(t.t)}</span><span class="ctema">${t.tema}</span></span></span></button>`).join('');
   document.getElementById('empty').hidden=items.length>0;}
 document.getElementById('chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;theme=b.textContent;document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c===b));render();});
 document.getElementById('q').addEventListener('input',render);
@@ -310,89 +323,6 @@ function bindTilt(){document.querySelectorAll('.ficha').forEach(f=>{if(f.dataset
 /* ---------- shared drawing ---------- */
 function rng(s){return()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),lerp=(a,b,k)=>a+(b-a)*k,eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
-
-/* ---------- isometric printer ---------- */
-(function(){
-const cv=document.getElementById('printer'),c=cv.getContext('2d');const W=cv.width,H=cv.height;
-const S=88,OX=W/2,OY=H*0.55,C30=Math.cos(Math.PI/6),S30=.5;
-const P=(x,y,z)=>[OX+(x-z)*C30*S,OY+(x+z)*S30*S-y*S];
-// part footprint: rounded rect in x/z
-const PW=1.7,PD=1.15,PR=.28,LAYERS=14,LH=.075;
-const foot=[];for(const [cx,cz,a0] of [[PW-PR,PD-PR,0],[-PW+PR,PD-PR,Math.PI/2],[-PW+PR,-PD+PR,Math.PI],[PW-PR,-PD+PR,Math.PI*1.5]]){for(let i=0;i<=8;i++){const a=a0+i/8*Math.PI/2;foot.push([cx+Math.cos(a)*PR,cz+Math.sin(a)*PR])}}
-const R=rng(11);const rough=[];for(let i=0;i<70;i++){const p=[];for(let k=0;k<=30;k++)p.push((R()-.5)*1.4);rough.push({p,a:.25+R()*.45,g:R(),gw:.05+R()*.15})}
-function poly(pts){c.beginPath();pts.forEach((p,i)=>i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1]));c.closePath()}
-function hull(pts){pts=pts.slice().sort((a,b)=>a[0]-b[0]||a[1]-b[1]);const cr=(o,a,b)=>(a[0]-o[0])*(b[1]-o[1])-(a[1]-o[1])*(b[0]-o[0]);const lo=[],up=[];
-  for(const p of pts){while(lo.length>=2&&cr(lo[lo.length-2],lo[lo.length-1],p)<=0)lo.pop();lo.push(p)}
-  for(const p of pts.slice().reverse()){while(up.length>=2&&cr(up[up.length-2],up[up.length-1],p)<=0)up.pop();up.push(p)}return lo.slice(0,-1).concat(up.slice(0,-1))}
-function clipX(xc,y0,y1){const L=4,pts=[];for(const x of [-L,xc])for(const z of [-L,L])for(const y of [y0-.05,y1+.05])pts.push(P(x,y,z));poly(hull(pts));c.clip()}
-function box(x0,x1,y0,y1,z0,z1,top,left,right){ // iso box faces visible: top, +x? we see faces with normals -? (front faces: +x and +z)
-  poly([P(x0,y1,z0),P(x1,y1,z0),P(x1,y1,z1),P(x0,y1,z1)]);c.fillStyle=top;c.fill();
-  poly([P(x0,y0,z1),P(x1,y0,z1),P(x1,y1,z1),P(x0,y1,z1)]);c.fillStyle=left;c.fill();
-  poly([P(x1,y0,z0),P(x1,y0,z1),P(x1,y1,z1),P(x1,y1,z0)]);c.fillStyle=right;c.fill();}
-function plate(){
-  box(-2.55,2.55,-.16,0,-1.85,1.85,'#2A292E','#1D1C21','#242328');
-  c.save();poly([P(-2.55,0,-1.85),P(2.55,0,-1.85),P(2.55,0,1.85),P(-2.55,0,1.85)]);c.clip();
-  const g=c.createLinearGradient(...P(-2.5,0,-1.8),...P(2.5,0,1.8));g.addColorStop(0,'#3A3833');g.addColorStop(1,'#2B2A2E');c.fillStyle=g;c.fillRect(0,0,W,H);
-  c.fillStyle='rgba(201,162,75,.10)';const r2=rng(3);for(let i=0;i<900;i++){const [x,y]=P(-2.5+r2()*5,0,-1.8+r2()*3.6);c.fillRect(x,y,2,2)}
-  c.restore();}
-const GOLD=['#E3C67E','#C9A24B','#A9832F','#8C6A24'];
-function layer(i,top){ // draws side bands + top for layer i
-  const y0=i*LH,y1=y0+LH;
-  // sides: edges facing viewer (normal with +x or +z component)
-  for(let k=0;k<foot.length;k++){const a=foot[k],b=foot[(k+1)%foot.length];const nx=b[1]-a[1],nz=-(b[0]-a[0]);// outward normal (ccw)
-    const vis=nx+nz;if(vis<=0)continue;const lit=clamp((nx*.9-nz*.15)/Math.hypot(nx,nz)*.5+.5);
-    poly([P(a[0],y0,a[1]),P(b[0],y0,b[1]),P(b[0],y1,b[1]),P(a[0],y1,a[1])]);
-    c.fillStyle=`rgb(${lerp(150,230,lit)|0},${lerp(112,190,lit)|0},${lerp(40,110,lit)|0})`;c.fill();}
-  // layer line
-  c.strokeStyle='rgba(90,64,18,.35)';c.lineWidth=1.2;c.beginPath();let st=false;
-  for(let k=0;k<=foot.length;k++){const a=foot[k%foot.length],b=foot[(k+1)%foot.length];const nx=b[1]-a[1],nz=-(b[0]-a[0]);const pp=P(a[0],y0,a[1]);if(nx+nz>0){st?c.lineTo(...pp):c.moveTo(...pp);st=true}else st=false}c.stroke();
-  // top
-  poly(foot.map(f=>P(f[0],y1,f[1])));const g=c.createLinearGradient(...P(-PW,y1,-PD),...P(PW,y1,PD));g.addColorStop(0,'#F0D894');g.addColorStop(.55,'#D6B05A');g.addColorStop(1,'#B88E3A');c.fillStyle=g;c.fill();
-  return y1;}
-function topTexture(y1,smoothX,glint){ // rough lines on top, smooth where x<=smoothX
-  c.save();poly(foot.map(f=>P(f[0],y1,f[1])));c.clip();
-  c.save();if(smoothX>-9){const pts=[];const L=4;for(const x of [smoothX,L])for(const z of [-L,L])pts.push(P(x,y1,z));poly(hull(pts));c.clip()}
-  for(let i=0;i<rough.length;i++){const r=rough[i];const u=-2.2+i*(4.4/rough.length);
-    c.strokeStyle=`rgba(96,66,14,${r.a+.2})`;c.lineWidth=3.2;c.beginPath();
-    r.p.forEach((d,k)=>{const v=-2.2+k*(4.4/30);const x=(u+v)*.7,z=(v-u)*.7;const pp=P(x+d*.02,y1,z);k?c.lineTo(pp[0],pp[1]+d):c.moveTo(pp[0],pp[1]+d)});c.stroke();}
-  c.restore();
-  if(glint!=null){const gx=lerp(-2.5,2.5,glint);const a=P(gx-.5,y1,-1.2),b=P(gx+.5,y1,1.2);const g=c.createLinearGradient(a[0],a[1],b[0],b[1]);
-    g.addColorStop(0,'rgba(255,255,255,0)');g.addColorStop(.5,'rgba(255,250,230,.75)');g.addColorStop(1,'rgba(255,255,255,0)');c.fillStyle=g;c.fillRect(0,0,W,H)}
-  c.restore();}
-function toolhead(x,y,z,heat){
-  // rail along x
-  box(-2.45,2.45,y+.62,y+.74,z-.07,z+.07,'#3A393F','#232227','#2E2D33');
-  const hx=x,hz=z;
-  // nozzle cone
-  const t=P(hx,y+.02,hz),l=P(hx-.09,y+.2,hz),r=P(hx+.09,y+.2,hz);c.beginPath();c.moveTo(...t);c.lineTo(...l);c.lineTo(...r);c.closePath();c.fillStyle='#C99A3A';c.fill();
-  if(heat>0){const g=c.createRadialGradient(t[0],t[1],0,t[0],t[1],40);g.addColorStop(0,`rgba(255,170,60,${.55*heat})`);g.addColorStop(1,'rgba(255,170,60,0)');c.fillStyle=g;c.beginPath();c.arc(t[0],t[1],40,0,7);c.fill()}
-  box(hx-.32,hx+.32,y+.2,y+.86,hz-.3,hz+.3,'#F4F2EE','#D8D5CF','#E8E5E0');
-  const f=P(hx+.32,y+.62,hz);c.fillStyle='#17161A';c.beginPath();c.arc(f[0]-10,f[1]+2,13,0,7);c.fill();
-  c.fillStyle='#C9A24B';c.beginPath();c.arc(f[0]-10,f[1]+2,4,0,7);c.fill();
-}
-const PRINT=LAYERS*.32,IRON=1.5,GL=.9,TOTAL=PRINT+.4+IRON+.2+GL;
-let t0=null,done=false;const st=document.getElementById('st'),rep=document.getElementById('replay');
-function frame(now){if(t0==null)t0=now;let t=(now-t0)/1000;if(RM)t=TOTAL;
-  c.clearRect(0,0,W,H);
-  // soft shadow
-  const sh=P(0,0,0);const g=c.createRadialGradient(sh[0],sh[1]+40,10,sh[0],sh[1]+40,520);g.addColorStop(0,'rgba(23,22,26,.16)');g.addColorStop(1,'rgba(23,22,26,0)');c.fillStyle=g;c.fillRect(0,0,W,H);
-  plate();
-  const L=Math.min(LAYERS,Math.floor(t/.32));const part=(t/.32)%1;
-  let y1=0;for(let i=0;i<Math.min(L,LAYERS);i++)y1=layer(i);if(t<PRINT&&L>0)topTexture(y1,-99,null);
-  let hx=2.4,hy=y1+.05,hz=0,heat=0;
-  if(t<PRINT){const xc=lerp(-PW-.05,PW+.05,part);c.save();clipX(xc,L*LH,L*LH+LH);layer(L);c.restore();
-    hx=xc;hy=(L+1)*LH+.02;hz=Math.sin(part*Math.PI*10)*PD*.85;heat=1;const le=document.getElementById('lay');if(le)le.textContent=L+1;}
-  else{const topY=LAYERS*LH;const ik=clamp((t-PRINT-.4)/IRON);const gk=clamp((t-PRINT-.4-IRON-.2)/GL);
-    const sx=t<PRINT+.4?-99:lerp(-PW-.1,PW+.1,eio(ik));topTexture(topY,sx,gk>0&&gk<1?gk:null);
-    if(t<PRINT+.4+IRON){hx=t<PRINT+.4?PW+.05:sx;hy=topY+.03;hz=Math.sin(ik*Math.PI*8)*PD*.8;heat=.8;st.innerHTML='Alisando o topo com o ajuste da dica <b>01</b>'}
-    else{const pk=eio(clamp((t-PRINT-.4-IRON)/.8));hx=lerp(PW+.1,2.2,pk);hy=topY+.03+pk*.25;hz=lerp(0,-.4,pk);heat=1-pk;st.innerHTML='Topo liso. Impressão concluída'}}
-  toolhead(hx,hy,hz,heat);
-  if(t<TOTAL+.9)requestAnimationFrame(frame);else{rep.hidden=false;done=true}}
-function start(){t0=null;rep.hidden=true;st.innerHTML='Imprimindo camada <b id="lay">1</b> de 14';requestAnimationFrame(frame)}
-rep.addEventListener('click',()=>{start()});
-window.__printerAt=t=>{t0=performance.now()-t*1000};
-requestAnimationFrame(frame);
-})();
 
 /* ---------- before/after compare ---------- */
 function initCompare(box){
