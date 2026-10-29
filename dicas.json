@@ -134,20 +134,20 @@
         },
         {
           "onde": "Filamento · camada inicial",
-          "oque": "Temperatura da mesa",
-          "valor": "+5 (ex.: 55 → 60)",
+          "oque": "Temperatura da mesa (teste de 5 em 5 °C)",
+          "valor": "+5 por teste (ex.: 55 → 60 → 65)",
           "unidade": "°C"
         },
         {
           "onde": "Filamento · camada inicial",
-          "oque": "Temperatura do bico",
-          "valor": "+5 (ex.: 220 → 225)",
+          "oque": "Temperatura do bico (teste de 5 em 5 °C)",
+          "valor": "+5 por teste (ex.: 220 → 225 → 230)",
           "unidade": "°C"
         }
       ],
       "porque": "Mesa limpa e sem gordura, primeira camada mais lenta e um pouco mais quente fazem o plástico espalhar e grudar; viagem mais lenta evita que o bico arranque a camada.",
-      "nota": "Os +5 °C valem só para a camada inicial.",
-      "busca": "primeira camada nao gruda descola levanta adesao mesa placa warping lavar detergente velocidade viagem temperatura mesa bico",
+      "nota": "Na mesa e no bico, sobe 5 °C, imprime uma peça de teste e repete até grudar. Vale só para a camada inicial.",
+      "busca": "primeira camada nao gruda descola levanta adesao mesa placa warping lavar detergente velocidade viagem temperatura mesa bico teste temperatura 5 graus",
       "comparar": false,
       "video": "reel_04_primeira-camada.mp4"
     }
