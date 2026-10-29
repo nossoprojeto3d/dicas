@@ -102,6 +102,54 @@
       "busca": "suporte grudado gruda difícil tirar remover marca marcado cicatriz parte de baixo árvore tree distância z interface support",
       "comparar": false,
       "video": "reel_03_suporte-grudado.mp4"
+    },
+    {
+      "n": 4,
+      "titulo": "Primeira camada grudada em 5 ajustes",
+      "tema": "Problemas",
+      "gancho": [
+        "A 1ª camada da sua",
+        "impressão 3D",
+        "não gruda?"
+      ],
+      "lead": "Se a peça descola da mesa ou a primeira camada levanta no canto, começa lavando a mesa e depois muda estes quatro ajustes no fatiador.",
+      "ajustes": [
+        {
+          "onde": "Mesa",
+          "oque": "Lavar com água e detergente",
+          "valor": "Água + detergente",
+          "unidade": ""
+        },
+        {
+          "onde": "Aba Velocidade",
+          "oque": "Camada inicial",
+          "valor": "35",
+          "unidade": "mm/s"
+        },
+        {
+          "onde": "Aba Velocidade",
+          "oque": "Viagem (deslocamento)",
+          "valor": "300",
+          "unidade": "mm/s"
+        },
+        {
+          "onde": "Filamento · camada inicial",
+          "oque": "Temperatura da mesa",
+          "valor": "+5 (ex.: 55 → 60)",
+          "unidade": "°C"
+        },
+        {
+          "onde": "Filamento · camada inicial",
+          "oque": "Temperatura do bico",
+          "valor": "+5 (ex.: 220 → 225)",
+          "unidade": "°C"
+        }
+      ],
+      "porque": "Mesa limpa e sem gordura, primeira camada mais lenta e um pouco mais quente fazem o plástico espalhar e grudar; viagem mais lenta evita que o bico arranque a camada.",
+      "nota": "Os +5 °C valem só para a camada inicial.",
+      "busca": "primeira camada nao gruda descola levanta adesao mesa placa warping lavar detergente velocidade viagem temperatura mesa bico",
+      "comparar": false,
+      "video": "reel_04_primeira-camada.mp4"
     }
   ]
 }
