@@ -198,6 +198,48 @@
       "busca": "sites modelos stl baixar download makerworld creality cloud printables cults thingiverse makeronline arquivos gratis pagos",
       "comparar": false,
       "video": "reel_05_sites-de-modelos.mp4"
+    },
+    {
+      "n": 6,
+      "titulo": "Suporte saindo fácil em 4 ajustes",
+      "tema": "Problemas",
+      "gancho": [
+        "Tirar o suporte da",
+        "impressão 3D",
+        "é uma luta?"
+      ],
+      "lead": "Se você precisa de alicate pra arrancar o suporte, ajusta a interface superior na aba Suporte do fatiador: ela vira uma tampa lisa que solta inteira da peça.",
+      "ajustes": [
+        {
+          "onde": "Aba Suporte",
+          "oque": "Distância Z superior",
+          "valor": "0.24",
+          "unidade": "mm"
+        },
+        {
+          "onde": "Aba Suporte",
+          "oque": "Camadas de interface superior",
+          "valor": "4",
+          "unidade": "camadas"
+        },
+        {
+          "onde": "Aba Suporte",
+          "oque": "Espaçamento da interface superior",
+          "valor": "0.1",
+          "unidade": "mm"
+        },
+        {
+          "onde": "Aba Suporte",
+          "oque": "Altura independente da camada de suporte",
+          "valor": "Desmarcado",
+          "unidade": ""
+        }
+      ],
+      "porque": "A distância Z na altura da camada + 0,04 mm deixa a folguinha certa; mais camadas de interface bem juntinhas formam uma tampa lisa e firme que solta de uma vez; e com a altura independente desmarcada o suporte segue as mesmas camadas da peça, então essa folga fica exata.",
+      "nota": "Regra rápida: distância Z superior = altura da camada + 0,04 mm (camada 0,2 → 0,24 mm). Veja também a dica nº 03, que usa suporte em árvore.",
+      "busca": "suporte difícil tirar remover arrancar alicate grudado gruda interface superior espaçamento distância z altura independente camada support",
+      "comparar": false,
+      "video": "reel_06_suporte-facil.mp4"
     }
   ]
 }
