@@ -150,6 +150,54 @@
       "busca": "primeira camada nao gruda descola levanta adesao mesa placa warping lavar detergente velocidade viagem temperatura mesa bico teste temperatura 5 graus",
       "comparar": false,
       "video": "reel_04_primeira-camada.mp4"
+    },
+    {
+      "n": 5,
+      "titulo": "5 sites de modelos além do MakerWorld",
+      "tema": "Modelos",
+      "gancho": [
+        "Onde baixar modelo",
+        "de impressão 3D",
+        "além do MakerWorld?"
+      ],
+      "lead": "Cansou de garimpar sempre no mesmo lugar? Estes 5 sites também têm muito modelo pra imprimir, grátis e pagos.",
+      "ajustes": [
+        {
+          "onde": "Creality Cloud",
+          "oque": "Biblioteca da Creality, com concursos e modelos premium",
+          "valor": "crealitycloud.com",
+          "unidade": ""
+        },
+        {
+          "onde": "Printables",
+          "oque": "Site da Prusa, comunidade grande e concursos",
+          "valor": "printables.com",
+          "unidade": ""
+        },
+        {
+          "onde": "Cults",
+          "oque": "Modelos grátis e pagos de vários designers",
+          "valor": "cults3d.com",
+          "unidade": ""
+        },
+        {
+          "onde": "Thingiverse",
+          "oque": "Um dos mais antigos, com acervo gigante",
+          "valor": "thingiverse.com",
+          "unidade": ""
+        },
+        {
+          "onde": "MakerOnline",
+          "oque": "Outra opção pra garimpar modelos diferentes",
+          "valor": "makeronline.com",
+          "unidade": ""
+        }
+      ],
+      "porque": "Cada site tem comunidade e designers diferentes; procurar em mais de um aumenta a chance de achar o modelo certo.",
+      "nota": "Confere a licença de cada modelo antes de vender a peça.",
+      "busca": "sites modelos stl baixar download makerworld creality cloud printables cults thingiverse makeronline arquivos gratis pagos",
+      "comparar": false,
+      "video": "reel_05_sites-de-modelos.mp4"
     }
   ]
 }
