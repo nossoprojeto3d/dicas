@@ -240,6 +240,48 @@
       "busca": "suporte difícil tirar remover arrancar alicate grudado gruda interface superior espaçamento distância z altura independente camada support",
       "comparar": false,
       "video": "reel_06_suporte-facil.mp4"
+    },
+    {
+      "n": 7,
+      "titulo": "Peça soltou? Pula ela e salva a placa",
+      "tema": "Problemas",
+      "gancho": [
+        "Uma peça soltou",
+        "na impressão 3D",
+        "e agora?"
+      ],
+      "lead": "Quando uma peça descola numa placa cheia, não para a impressão: pula só a peça que soltou e deixa a impressora terminar as outras.",
+      "ajustes": [
+        {
+          "onde": "Fatiador (antes de imprimir)",
+          "oque": "Rotular objetos (label objects)",
+          "valor": "Ligado",
+          "unidade": ""
+        },
+        {
+          "onde": "App ou tela da impressora",
+          "oque": "Peça soltou durante a impressão",
+          "valor": "Pular (nunca Parar)",
+          "unidade": ""
+        },
+        {
+          "onde": "Mapa da placa",
+          "oque": "Peça a pular",
+          "valor": "Só a que soltou",
+          "unidade": ""
+        },
+        {
+          "onde": "Confirmar",
+          "oque": "Resultado",
+          "valor": "As outras peças terminam",
+          "unidade": ""
+        }
+      ],
+      "porque": "Com os objetos rotulados no fatiador, a impressora sabe onde está cada peça e consegue desviar só da que soltou. Parar a impressão joga fora a placa inteira; pular salva todo o resto.",
+      "nota": "Na Bambu Lab os objetos já vêm rotulados. No Orca e no PrusaSlicer ative \"Rotular objetos\"; em impressora com Klipper, ative também \"Excluir objetos\". Tira a peça solta da placa com a impressora pausada, para ela não arrastar as outras.",
+      "busca": "peça soltou descolou solta placa cheia várias peças pular objeto cancelar objeto excluir objeto skip object exclude object label rotular não perder impressão salvar placa",
+      "comparar": false,
+      "video": "reel_07_pular-peca.mp4"
     }
   ]
 }
