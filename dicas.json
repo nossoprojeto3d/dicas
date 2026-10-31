@@ -250,24 +250,24 @@
         "na impressão 3D",
         "e agora?"
       ],
-      "lead": "Quando uma peça descola numa placa cheia, não para a impressão: pula só a peça que soltou e deixa a impressora terminar as outras.",
+      "lead": "Quando uma peça descola numa placa cheia, não para a impressão: pelo app Bambu Handy dá pra pular só a peça que soltou e deixar a impressora terminar as outras.",
       "ajustes": [
         {
-          "onde": "Fatiador (antes de imprimir)",
-          "oque": "Rotular objetos (label objects)",
-          "valor": "Ligado",
+          "onde": "Celular",
+          "oque": "Abrir o app",
+          "valor": "Bambu Handy",
           "unidade": ""
         },
         {
-          "onde": "App ou tela da impressora",
-          "oque": "Peça soltou durante a impressão",
+          "onde": "Aba Dispositivo",
+          "oque": "Impressão em andamento",
           "valor": "Pular (nunca Parar)",
           "unidade": ""
         },
         {
           "onde": "Mapa da placa",
-          "oque": "Peça a pular",
-          "valor": "Só a que soltou",
+          "oque": "Selecionar",
+          "valor": "Só a peça que soltou",
           "unidade": ""
         },
         {
@@ -277,9 +277,8 @@
           "unidade": ""
         }
       ],
-      "porque": "Com os objetos rotulados no fatiador, a impressora sabe onde está cada peça e consegue desviar só da que soltou. Parar a impressão joga fora a placa inteira; pular salva todo o resto.",
-      "nota": "Na Bambu Lab os objetos já vêm rotulados. No Orca e no PrusaSlicer ative \"Rotular objetos\"; em impressora com Klipper, ative também \"Excluir objetos\". Tira a peça solta da placa com a impressora pausada, para ela não arrastar as outras.",
-      "busca": "peça soltou descolou solta placa cheia várias peças pular objeto cancelar objeto excluir objeto skip object exclude object label rotular não perder impressão salvar placa",
+      "porque": "Pular faz a impressora desviar só da peça que soltou. Parar joga fora a placa inteira; pular salva todo o resto.",
+      "busca": "peça soltou descolou solta placa cheia várias peças pular objeto pular peça skip object bambu handy bambu lab app não perder impressão salvar placa",
       "comparar": false,
       "video": "reel_07_pular-peca.mp4"
     }
