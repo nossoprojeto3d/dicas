@@ -281,6 +281,42 @@
       "busca": "peça soltou descolou solta placa cheia várias peças pular objeto pular peça skip object bambu handy bambu lab app não perder impressão salvar placa",
       "comparar": false,
       "video": "reel_07_pular-peca.mp4"
+    },
+    {
+      "n": 8,
+      "titulo": "Letra pequena nítida em 3 ajustes",
+      "tema": "Acabamento",
+      "gancho": [
+        "Letra pequena da",
+        "impressão 3D",
+        "sai borrada?"
+      ],
+      "lead": "Letra e relevo pequenos saem borrados com bico 0,4? Troca o gerador de parede e afina a linha da parede externa e do topo no fatiador.",
+      "ajustes": [
+        {
+          "onde": "Aba Qualidade",
+          "oque": "Gerador de parede",
+          "valor": "Arachne",
+          "unidade": ""
+        },
+        {
+          "onde": "Aba Qualidade · Largura da linha",
+          "oque": "Parede externa",
+          "valor": "0.32",
+          "unidade": "mm"
+        },
+        {
+          "onde": "Aba Qualidade · Largura da linha",
+          "oque": "Superfície superior",
+          "valor": "0.32",
+          "unidade": "mm"
+        }
+      ],
+      "porque": "O Arachne varia a largura da linha e consegue preencher detalhe fino que o Clássico pula. Com a parede externa e o topo em 0,32 mm (o padrão é 0,42), a linha fica mais fina que o bico e contorna curva pequena sem borrar.",
+      "nota": "Valores para bico 0,4 mm e camada de 0,2 mm. Deixa as outras larguras como estão.",
+      "busca": "letra pequena borrada relevo detalhe fino nítido chaveiro texto arachne clássico gerador de parede largura da linha parede externa superfície superior line width outer wall top surface bico 0.4",
+      "comparar": true,
+      "video": "reel_08_letra-nitida.mp4"
     }
   ]
 }
