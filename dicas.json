@@ -317,6 +317,54 @@
       "busca": "letra pequena borrada relevo detalhe fino nítido chaveiro texto arachne clássico gerador de parede largura da linha parede externa superfície superior line width outer wall top surface bico 0.4",
       "comparar": true,
       "video": "reel_08_letra-nitida.mp4"
+    },
+    {
+      "n": 9,
+      "titulo": "Qual impressora pra começar a vender",
+      "tema": "Impressoras",
+      "gancho": [
+        "Vai vender",
+        "impressão 3D?",
+        "Qual impressora?"
+      ],
+      "lead": "Escolher a impressora errada pra começar um negócio de impressão 3D sai caro. Cada uma das 5 serve melhor pra um objetivo.",
+      "ajustes": [
+        {
+          "onde": "Pra aprender",
+          "oque": "Kobra 3 V2",
+          "valor": "Preço de entrada, uma cor",
+          "unidade": ""
+        },
+        {
+          "onde": "Pra começar a vender (a que eu indico)",
+          "oque": "Bambu A1",
+          "valor": "Fácil de usar, até 4 cores com AMS Lite",
+          "unidade": ""
+        },
+        {
+          "onde": "Pra peças coloridas",
+          "oque": "Creality + CFS",
+          "valor": "Até 4 cores, bom preço",
+          "unidade": ""
+        },
+        {
+          "onde": "Pra produzir em quantidade",
+          "oque": "Creator 5",
+          "valor": "Rápida, 4 cores, produção",
+          "unidade": ""
+        },
+        {
+          "onde": "Pra não desperdiçar",
+          "oque": "Snapmaker U1",
+          "valor": "4 bicos, troca de cor quase sem desperdício",
+          "unidade": ""
+        }
+      ],
+      "porque": "Quem está aprendendo não precisa gastar muito; quem quer vender precisa de facilidade e cor; quem já vende bastante precisa de velocidade; e com 4 bicos a troca de cor quase não joga filamento fora, o que vira economia no fim do mês.",
+      "nota": "Preço e disponibilidade mudam bastante; confere antes de comprar.",
+      "busca": "qual impressora comprar começar negócio vender primeira impressora 3d kobra 3 v2 anycubic bambu a1 ams lite creality cfs creator 5 flashforge snapmaker u1 multicolor 4 cores desperdício",
+      "comparar": false,
+      "video": "reel_09_qual-impressora.mp4"
     }
   ]
 }
