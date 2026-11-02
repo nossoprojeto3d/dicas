@@ -317,6 +317,90 @@
       "busca": "letra pequena borrada relevo detalhe fino nítido chaveiro texto arachne clássico gerador de parede largura da linha parede externa superfície superior line width outer wall top surface bico 0.4",
       "comparar": true,
       "video": "reel_08_letra-nitida.mp4"
+    },
+    {
+      "n": 9,
+      "titulo": "Filamento novo, parte 1: temperatura certa",
+      "tema": "Calibração",
+      "gancho": [
+        "Filamento novo na",
+        "impressão 3D",
+        "sai ruim?"
+      ],
+      "lead": "Antes de imprimir com um filamento novo, faz a torre de temperatura do fatiador e salva a melhor temperatura num perfil próprio. Depois segue para a parte 2 (nº 10), retração.",
+      "ajustes": [
+        {
+          "onde": "Menu Calibração",
+          "oque": "Teste",
+          "valor": "Temperatura",
+          "unidade": ""
+        },
+        {
+          "onde": "Calibração de temperatura",
+          "oque": "Faixa (ex.: PETG), de 5 em 5 °C",
+          "valor": "250 → 230 °C",
+          "unidade": ""
+        },
+        {
+          "onde": "Torre impressa",
+          "oque": "Escolher",
+          "valor": "O andar mais bonito",
+          "unidade": ""
+        },
+        {
+          "onde": "Config. do filamento · Bico",
+          "oque": "Temperatura (no teste deu)",
+          "valor": "245",
+          "unidade": "°C"
+        }
+      ],
+      "porque": "Cada andar da torre sai 5 °C mais frio. O melhor andar (sem fio, ponte firme e número nítido) mostra a temperatura ideal para aquele rolo, em vez de chutar pelo valor da caixa.",
+      "nota": "Salva o filamento como um perfil novo, com a temperatura no nome (ex.: \"PETG marca X 245\"). O valor de 245 °C foi o do teste do vídeo; o seu rolo pode dar outro. Parte 2: dica nº 10.",
+      "busca": "filamento novo calibrar calibração temperatura torre de temperatura temp tower petg pla rolo novo bico perfil de filamento parte 1",
+      "comparar": false,
+      "video": "reel_09_filamento-novo-parte1.mp4"
+    },
+    {
+      "n": 10,
+      "titulo": "Filamento novo, parte 2: fim do fio",
+      "tema": "Calibração",
+      "gancho": [
+        "Filamento novo na",
+        "impressão 3D",
+        "faz fio?"
+      ],
+      "lead": "Com a temperatura da parte 1 (nº 09) já salva, faz o teste de retração do fatiador e coloca no perfil do filamento o valor em que o fio some.",
+      "ajustes": [
+        {
+          "onde": "Menu Calibração · Mais",
+          "oque": "Teste",
+          "valor": "Teste de retração",
+          "unidade": ""
+        },
+        {
+          "onde": "Teste de retração",
+          "oque": "Comprimento, de 0,1 em 0,1 mm",
+          "valor": "0 → 2 mm",
+          "unidade": ""
+        },
+        {
+          "onde": "Torre impressa",
+          "oque": "Escolher",
+          "valor": "Altura onde o fio some",
+          "unidade": ""
+        },
+        {
+          "onde": "Filamento · Configurando substituições · Retração",
+          "oque": "Comprimento (no teste deu)",
+          "valor": "1",
+          "unidade": "mm"
+        }
+      ],
+      "porque": "Cada trecho da torre retrai 0,1 mm a mais. A altura em que os fios entre os pilares somem indica o menor comprimento de retração que resolve, sem exagerar.",
+      "nota": "Faz este teste usando o perfil com a temperatura da parte 1. No teste do vídeo o valor passou de 0,8 para 1 mm; o seu rolo pode dar outro. Parte 1: dica nº 09.",
+      "busca": "filamento novo fio fiapo teia stringing retração teste de retração retraction comprimento calibrar calibração petg pla parte 2",
+      "comparar": false,
+      "video": "reel_10_filamento-novo-parte2.mp4"
     }
   ]
 }
