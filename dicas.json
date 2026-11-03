@@ -375,7 +375,7 @@
         "da impressão 3D",
         "vai pro lixo?"
       ],
-      "lead": "Em impressão com troca de cor, em vez de jogar a torre de purga fora, coloca uma peça útil na mesa e manda a sobra de filamento pra dentro dela.",
+      "lead": "Em impressão com troca de cor, em vez de jogar a torre de purga fora, coloca uma peça útil na mesa e manda a sobra de filamento pra dentro dela pelas Opções de descarga.",
       "ajustes": [
         {
           "onde": "Mesa do fatiador",
@@ -390,15 +390,15 @@
           "unidade": ""
         },
         {
-          "onde": "Configurações do objeto",
-          "oque": "Purgar neste objeto",
-          "valor": "Ligado",
+          "onde": "Clique direito na peça › Opções de descarga",
+          "oque": "1º Flush no preenchimento dos objetos · 2º Flush neste objeto",
+          "valor": "Marcar os dois, nessa ordem",
           "unidade": ""
         },
         {
-          "onde": "Placa",
+          "onde": "Aba Global › Outros",
           "oque": "Torre de purga",
-          "valor": "Desligada (confirma o aviso)",
+          "valor": "Desativar (confirma o aviso)",
           "unidade": ""
         }
       ],
