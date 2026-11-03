@@ -384,15 +384,15 @@
           "unidade": ""
         },
         {
-          "onde": "Escala da peça",
-          "oque": "Tamanho (no vídeo)",
-          "valor": "60 × 68 × 80 mm, perto da torre",
+          "onde": "Escala da peça útil",
+          "oque": "Tamanho",
+          "valor": "Igual ou maior que a peça que gera a purga (no vídeo: 60 × 68 × 80 mm)",
           "unidade": ""
         },
         {
-          "onde": "Clique direito na peça › Opções de descarga",
-          "oque": "1º Flush no preenchimento dos objetos · 2º Flush neste objeto",
-          "valor": "Marcar os dois, nessa ordem",
+          "onde": "Clique direito no objeto que recebe a purga › Opções de descarga",
+          "oque": "Flush no preenchimento dos objetos + Flush neste objeto",
+          "valor": "Marcar as 2 opções",
           "unidade": ""
         },
         {
@@ -403,7 +403,7 @@
         }
       ],
       "porque": "A sobra de cada troca de cor vai pro miolo da peça útil em vez de virar uma torre que vai pro lixo. No fim sai uma peça a mais no lugar do desperdício.",
-      "nota": "A peça útil precisa ter volume suficiente pra receber toda a purga. Em impressora de dois bicos, o fatiador avisa que a torre ajuda na troca de bico; confere o resultado na pré-visualização antes de imprimir.",
+      "nota": "A peça útil tem que ser igual ou maior que a peça que gera a purga, pra caber toda a sobra. Em impressora de dois bicos, o fatiador avisa que a torre ajuda na troca de bico; confere na pré-visualização antes de imprimir.",
       "busca": "torre de purga prime tower purga troca de cor ams multicolor desperdício filamento lixo economia purgar neste objeto flush into object peça útil fidget",
       "comparar": false,
       "video": "reel_10_torre-de-purga.mp4"
