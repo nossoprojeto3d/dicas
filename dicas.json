@@ -365,6 +365,48 @@
       "busca": "qual impressora comprar começar negócio vender primeira impressora 3d kobra 3 v2 anycubic bambu a1 ams lite creality cfs creator 5 flashforge snapmaker u1 multicolor 4 cores desperdício",
       "comparar": false,
       "video": "reel_09_qual-impressora.mp4"
+    },
+    {
+      "n": 10,
+      "titulo": "Torre de purga que vira peça útil",
+      "tema": "Economia",
+      "gancho": [
+        "A torre de purga",
+        "da impressão 3D",
+        "vai pro lixo?"
+      ],
+      "lead": "Em impressão com troca de cor, em vez de jogar a torre de purga fora, coloca uma peça útil na mesa e manda a sobra de filamento pra dentro dela.",
+      "ajustes": [
+        {
+          "onde": "Mesa do fatiador",
+          "oque": "Adicionar",
+          "valor": "Uma peça útil (ex.: ovo fidget, porta-treco)",
+          "unidade": ""
+        },
+        {
+          "onde": "Escala da peça",
+          "oque": "Tamanho (no vídeo)",
+          "valor": "60 × 68 × 80 mm, perto da torre",
+          "unidade": ""
+        },
+        {
+          "onde": "Configurações do objeto",
+          "oque": "Purgar neste objeto",
+          "valor": "Ligado",
+          "unidade": ""
+        },
+        {
+          "onde": "Placa",
+          "oque": "Torre de purga",
+          "valor": "Desligada (confirma o aviso)",
+          "unidade": ""
+        }
+      ],
+      "porque": "A sobra de cada troca de cor vai pro miolo da peça útil em vez de virar uma torre que vai pro lixo. No fim sai uma peça a mais no lugar do desperdício.",
+      "nota": "A peça útil precisa ter volume suficiente pra receber toda a purga. Em impressora de dois bicos, o fatiador avisa que a torre ajuda na troca de bico; confere o resultado na pré-visualização antes de imprimir.",
+      "busca": "torre de purga prime tower purga troca de cor ams multicolor desperdício filamento lixo economia purgar neste objeto flush into object peça útil fidget",
+      "comparar": false,
+      "video": "reel_10_torre-de-purga.mp4"
     }
   ]
 }
