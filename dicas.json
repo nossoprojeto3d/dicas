@@ -410,43 +410,49 @@
     },
     {
       "n": 11,
-      "titulo": "Peça mais forte sem trocar de filamento",
+      "titulo": "Peça mais forte em 5 passos, sem trocar de filamento",
       "tema": "Resistência",
       "gancho": [
         "Sua peça de",
         "impressão 3D",
         "quebra fácil?"
       ],
-      "lead": "A peça quase sempre quebra entre uma camada e outra. Deitando ela na mesa, as linhas passam a contornar a quina e a mesma peça fica bem mais forte.",
+      "lead": "A peça quase sempre quebra entre uma camada e outra. Deitando ela na mesa e reforçando paredes, preenchimento, temperatura e ventoinha, a mesma peça fica bem mais forte.",
       "ajustes": [
-        {
-          "onde": "Na peça",
-          "oque": "Ponto de força",
-          "valor": "A quina ou a base do pino",
-          "unidade": ""
-        },
-        {
-          "onde": "Em pé",
-          "oque": "Camadas",
-          "valor": "Não podem cortar a quina",
-          "unidade": ""
-        },
         {
           "onde": "Mesa do fatiador",
           "oque": "Girar / Posicionar na face",
-          "valor": "Deitar a peça",
+          "valor": "Peça deitada (camadas contornando a quina)",
           "unidade": ""
         },
         {
-          "onde": "Pré-visualização",
-          "oque": "Conferir",
-          "valor": "Linhas contornando a quina",
+          "onde": "Aba Força",
+          "oque": "Paredes",
+          "valor": "4",
+          "unidade": "paredes"
+        },
+        {
+          "onde": "Aba Força · Preenchimento",
+          "oque": "Padrão e densidade",
+          "valor": "Gyroid · 25%",
           "unidade": ""
+        },
+        {
+          "onde": "Filamento · Bico",
+          "oque": "Temperatura",
+          "valor": "+5 a +10 °C (ex.: PLA 210 → 220)",
+          "unidade": ""
+        },
+        {
+          "onde": "Filamento · Resfriamento",
+          "oque": "Ventoinha",
+          "valor": "70",
+          "unidade": "%"
         }
       ],
-      "porque": "A ligação entre camadas é o ponto mais fraco da impressão. Em pé, as camadas atravessam a quina e ela racha ali; deitada, cada camada tem a quina inteira, e a força vai ao longo das linhas.",
-      "nota": "Vale pra suporte em L, gancho, suporte de carretel e qualquer peça que faz força numa quina. Se a peça deitada precisar de suporte, compensa na maioria dos casos.",
-      "busca": "peça quebra fraca resistência forte orientação deitar posicionar na face camadas quebrando delaminação suporte em L gancho quina sem trocar filamento",
+      "porque": "Em pé, as camadas atravessam a quina e ela racha ali; deitada, cada camada tem a quina inteira. Parede segura mais força que preenchimento, o Gyroid distribui a força pra todo lado (acima de uns 25% só ganha peso), e um pouco mais de temperatura com menos ventoinha faz uma camada soldar melhor na outra.",
+      "nota": "Ventoinha mais baixa pode piorar pontes e balanços; se a peça tiver muito disso, use 80 a 90%. Vale pra gancho, suporte em L, suporte de carretel e qualquer peça que faz força numa quina.",
+      "busca": "peça quebra fraca resistência forte orientação deitar posicionar na face camadas delaminação gancho suporte em L quina paredes perímetros preenchimento infill gyroid densidade temperatura ventoinha cooling sem trocar filamento",
       "comparar": false,
       "video": "reel_11_peca-mais-forte.mp4"
     }
