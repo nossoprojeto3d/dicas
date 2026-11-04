@@ -407,6 +407,48 @@
       "busca": "torre de purga prime tower purga troca de cor ams multicolor desperdício filamento lixo economia purgar neste objeto flush into object peça útil fidget",
       "comparar": false,
       "video": "reel_10_torre-de-purga.mp4"
+    },
+    {
+      "n": 11,
+      "titulo": "Peça mais forte sem trocar de filamento",
+      "tema": "Resistência",
+      "gancho": [
+        "Sua peça de",
+        "impressão 3D",
+        "quebra fácil?"
+      ],
+      "lead": "A peça quase sempre quebra entre uma camada e outra. Deitando ela na mesa, as linhas passam a contornar a quina e a mesma peça fica bem mais forte.",
+      "ajustes": [
+        {
+          "onde": "Na peça",
+          "oque": "Ponto de força",
+          "valor": "A quina ou a base do pino",
+          "unidade": ""
+        },
+        {
+          "onde": "Em pé",
+          "oque": "Camadas",
+          "valor": "Não podem cortar a quina",
+          "unidade": ""
+        },
+        {
+          "onde": "Mesa do fatiador",
+          "oque": "Girar / Posicionar na face",
+          "valor": "Deitar a peça",
+          "unidade": ""
+        },
+        {
+          "onde": "Pré-visualização",
+          "oque": "Conferir",
+          "valor": "Linhas contornando a quina",
+          "unidade": ""
+        }
+      ],
+      "porque": "A ligação entre camadas é o ponto mais fraco da impressão. Em pé, as camadas atravessam a quina e ela racha ali; deitada, cada camada tem a quina inteira, e a força vai ao longo das linhas.",
+      "nota": "Vale pra suporte em L, gancho, suporte de carretel e qualquer peça que faz força numa quina. Se a peça deitada precisar de suporte, compensa na maioria dos casos.",
+      "busca": "peça quebra fraca resistência forte orientação deitar posicionar na face camadas quebrando delaminação suporte em L gancho quina sem trocar filamento",
+      "comparar": false,
+      "video": "reel_11_peca-mais-forte.mp4"
     }
   ]
 }
