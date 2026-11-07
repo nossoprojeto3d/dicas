@@ -455,6 +455,42 @@
       "busca": "peça quebra fraca resistência forte orientação deitar posicionar na face camadas delaminação gancho suporte em L quina paredes perímetros preenchimento infill gyroid densidade temperatura ventoinha cooling sem trocar filamento",
       "comparar": false,
       "video": "reel_11_peca-mais-forte.mp4"
+    },
+    {
+      "n": 12,
+      "titulo": "Costura escondida em 3 ajustes",
+      "tema": "Acabamento",
+      "gancho": [
+        "Esse risco na",
+        "impressão 3D",
+        "te incomoda?"
+      ],
+      "lead": "Aquele risco vertical na peça é a costura: o ponto onde cada volta da parede começa e termina. Dá pra mandar ele pra trás e deixar quase invisível.",
+      "ajustes": [
+        {
+          "onde": "Aba Qualidade · Costura",
+          "oque": "Posição da costura",
+          "valor": "Traseira",
+          "unidade": ""
+        },
+        {
+          "onde": "Ferramenta Pintura de costura",
+          "oque": "Pintar a costura",
+          "valor": "Numa quina ou no lado escondido",
+          "unidade": ""
+        },
+        {
+          "onde": "Aba Velocidade",
+          "oque": "Parede externa",
+          "valor": "120",
+          "unidade": "mm/s"
+        }
+      ],
+      "porque": "Na traseira a costura fica no lado que ninguém vê; pintando numa quina, ela some dentro do canto; e com a parede externa mais lenta o começo e o fim de cada volta fecham sem bolinha.",
+      "nota": "Em peça redonda não tem quina pra esconder: vira a costura pro lado que vai ficar contra a parede. A velocidade de 120 mm/s é um ponto de partida; o padrão varia por impressora.",
+      "busca": "costura risco vertical linha vertical seam zíper bolinha emenda posição da costura traseira alinhada pintura de costura seam painting parede externa velocidade acabamento",
+      "comparar": true,
+      "video": "reel_12_costura-escondida.mp4"
     }
   ]
 }
