@@ -491,6 +491,42 @@
       "busca": "costura risco vertical linha vertical seam zíper bolinha emenda posição da costura traseira alinhada pintura de costura seam painting parede externa velocidade acabamento",
       "comparar": true,
       "video": "reel_12_costura-escondida.mp4"
+    },
+    {
+      "n": 13,
+      "titulo": "Peça retinha, sem empenar, em 3 ajustes",
+      "tema": "Problemas",
+      "gancho": [
+        "A ponta da sua",
+        "impressão 3D",
+        "levanta?"
+      ],
+      "lead": "Quando a base esfria rápido, ela encolhe e puxa as pontas pra cima (warping). Borda, mesa limpa e um pouco mais de calor na mesa seguram a peça retinha.",
+      "ajustes": [
+        {
+          "onde": "Aba Outros · Borda (brim)",
+          "oque": "Largura da borda",
+          "valor": "5",
+          "unidade": "mm"
+        },
+        {
+          "onde": "Mesa",
+          "oque": "Limpeza",
+          "valor": "Detergente neutro + água, secar bem",
+          "unidade": ""
+        },
+        {
+          "onde": "Filamento · Mesa",
+          "oque": "Temperatura da mesa",
+          "valor": "+5 °C (ex.: PLA 55 → 60)",
+          "unidade": ""
+        }
+      ],
+      "porque": "A borda aumenta a área grudada e segura as pontas; gordura de dedo é o que mais faz a ponta descolar; e com a mesa um pouco mais quente a base esfria devagar e não encolhe de uma vez.",
+      "nota": "Imprime longe de ventilador e ar-condicionado. Em peça grande e reta, arredondar os cantos no modelo também ajuda. Se a primeira camada nem gruda, veja a dica nº 04.",
+      "busca": "warping empenando empenou ponta levantando canto levantando descolando borda brim mesa limpa detergente temperatura da mesa base curvando",
+      "comparar": false,
+      "video": "reel_13_peca-empenando.mp4"
     }
   ]
 }
