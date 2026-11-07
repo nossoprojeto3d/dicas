@@ -527,6 +527,48 @@
       "busca": "warping empenando empenou ponta levantando canto levantando descolando borda brim mesa limpa detergente temperatura da mesa base curvando",
       "comparar": false,
       "video": "reel_13_peca-empenando.mp4"
+    },
+    {
+      "n": 14,
+      "titulo": "Encaixe na medida em 4 ajustes",
+      "tema": "Precisão",
+      "gancho": [
+        "O encaixe da sua",
+        "impressão 3D",
+        "não entra?"
+      ],
+      "lead": "Furo sai menor e pino sai maior que no desenho. Com as compensações certas no fatiador e folga no modelo, o encaixe entra sem lixar.",
+      "ajustes": [
+        {
+          "onde": "Aba Qualidade · Precisão",
+          "oque": "Compensação de furo X-Y",
+          "valor": "0.1",
+          "unidade": "mm"
+        },
+        {
+          "onde": "Aba Qualidade · Precisão",
+          "oque": "Compensação de contorno X-Y",
+          "valor": "-0.05",
+          "unidade": "mm"
+        },
+        {
+          "onde": "Aba Qualidade · Precisão",
+          "oque": "Compensação de pé de elefante",
+          "valor": "0.15",
+          "unidade": "mm"
+        },
+        {
+          "onde": "No desenho da peça",
+          "oque": "Folga do encaixe",
+          "valor": "0,2 mm de cada lado",
+          "unidade": ""
+        }
+      ],
+      "porque": "O filamento espalha um pouco pra dentro do furo e pra fora da peça. A compensação de furo abre o furo, a de contorno afina a parte de fora, a de pé de elefante tira o excesso da 1ª camada, e a folga no desenho garante o encaixe.",
+      "nota": "Os valores são ponto de partida: imprime um furo de teste e ajusta de 0,05 em 0,05 mm. Encaixe justo (pressão): 0,1 mm de folga; encaixe solto (gira): 0,3 mm.",
+      "busca": "encaixe não entra furo menor pino maior tolerância folga medida precisão compensação de furo hole compensation contorno contour pé de elefante elephant foot lixar",
+      "comparar": false,
+      "video": "reel_14_encaixe-na-medida.mp4"
     }
   ]
 }
