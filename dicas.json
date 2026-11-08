@@ -569,6 +569,54 @@
       "busca": "encaixe não entra furo menor pino maior tolerância folga medida precisão compensação de furo hole compensation contorno contour pé de elefante elephant foot lixar",
       "comparar": false,
       "video": "reel_14_encaixe-na-medida.mp4"
+    },
+    {
+      "n": 15,
+      "titulo": "Teia de aranha, parte 2: filamento úmido",
+      "tema": "Filamento",
+      "gancho": [
+        "Sua impressão 3D",
+        "ainda sai com",
+        "teia de aranha?"
+      ],
+      "lead": "Se a retração já tá certa (dica nº 02) e ainda sai fiapo, o problema é filamento úmido. Dá pra secar de 3 jeitos e guardar do jeito certo.",
+      "ajustes": [
+        {
+          "onde": "Sinais",
+          "oque": "Filamento úmido",
+          "valor": "Estalo, bolhinha e fiapo",
+          "unidade": ""
+        },
+        {
+          "onde": "Jeito 1 · Secador de filamento",
+          "oque": "PLA 50 °C · PETG 65 °C",
+          "valor": "6",
+          "unidade": "h"
+        },
+        {
+          "onde": "Jeito 2 · Desidratador de alimentos",
+          "oque": "Mesma temperatura",
+          "valor": "6",
+          "unidade": "h"
+        },
+        {
+          "onde": "Jeito 3 · Mesa da impressora",
+          "oque": "Mesa a 60 °C, rolo coberto com caixa de papelão",
+          "valor": "6",
+          "unidade": "h"
+        },
+        {
+          "onde": "Guardar",
+          "oque": "Rolo aberto",
+          "valor": "Pote ou saco fechado com sílica",
+          "unidade": ""
+        }
+      ],
+      "porque": "O filamento puxa umidade do ar. No bico, essa água ferve: estala, faz bolhinha e solta fiapo, mesmo com a retração certa. Secando, o fiapo some.",
+      "nota": "Não passa de 55 °C com PLA, senão o rolo pode deformar. No secador dá pra imprimir direto de dentro dele. Parte 1 (retração): dica nº 02.",
+      "busca": "fiapo teia de aranha stringing filamento úmido molhado umidade estalo estalando bolha secar filamento secador desidratador sílica guardar pla petg parte 2",
+      "comparar": false,
+      "video": "reel_15_teia-parte2.mp4"
     }
   ]
 }
