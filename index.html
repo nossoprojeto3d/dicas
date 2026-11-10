@@ -8,8 +8,19 @@
 <meta name="theme-color" content="#121211" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="Dicas Nosso Projeto 3D">
 <meta property="og:description" content="Ache a dica pelo número do vídeo e copie os valores direto pro fatiador.">
-<meta property="og:image" content="logo.png">
-<link rel="icon" href="logo.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Nosso Projeto 3D">
+<meta property="og:url" content="https://nossoprojeto3d.com.br/dicas/">
+<!-- ?v=: aumente quando trocar a imagem, senão o WhatsApp mostra a prévia antiga guardada -->
+<meta property="og:image" content="https://nossoprojeto3d.com.br/dicas/og-image.jpg?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo NP em framboesa ao lado do título Dicas de impressão 3D">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>[hidden]{display:none!important}img{max-width:100%}body{margin:0}</style>
 <title>Dicas Nosso Projeto 3D</title>
 </head>
@@ -18,20 +29,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
-/* Identidade "ficha técnica": fundo de papel claro, preto, um laranja de filamento como destaque e valores em fonte mono, como num manual.
+/* Identidade "ficha técnica": fundo de papel claro, preto, o framboesa do Dicas como destaque (cada projeto da casa tem a sua cor) e valores em fonte mono, como num manual.
    Layout: coluna de celular (máx. 600px). No computador (≥960px): barra lateral fixa com título, número, busca e filtros; à direita os cartões das dicas (o gancho do reel faz o papel de capa). */
 :root{
   --bg:#F6F4EF; --surface:#FFFFFF; --ink:#141414; --muted:#68645C; --line:#E6E1D6; --line-2:#D5CFC2;
-  --accent:#E8590C; --accent-ink:#B8440A; --accent-soft:#FDECDF; --mark:#FFE39A; --ok:#1F9D55; --err:#C2383D;
+  --accent:#C2255C; --accent-ink:#9C1A49; --accent-soft:#FBE3EC; --mark:#FFCADC; --ok:#1F9D55; --err:#C2383D;
   --f-body:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#121211; --surface:#1B1B19; --ink:#F2F0EB; --muted:#A39E94; --line:#2A2926; --line-2:#3A3834;
-  --accent:#FF7A33; --accent-ink:#FF9A5C; --accent-soft:#3A2214; --mark:#5C4A16; --ok:#3CC47A; --err:#F06A6E; color-scheme:dark}}
+  --accent:#FF5C8D; --accent-ink:#FF8FB0; --accent-soft:#3A1424; --mark:#5A1E36; --ok:#3CC47A; --err:#F06A6E; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#121211; --surface:#1B1B19; --ink:#F2F0EB; --muted:#A39E94; --line:#2A2926; --line-2:#3A3834;
-  --accent:#FF7A33; --accent-ink:#FF9A5C; --accent-soft:#3A2214; --mark:#5C4A16; --ok:#3CC47A; --err:#F06A6E; color-scheme:dark}
+  --accent:#FF5C8D; --accent-ink:#FF8FB0; --accent-soft:#3A1424; --mark:#5A1E36; --ok:#3CC47A; --err:#F06A6E; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px 56px}
@@ -242,7 +253,7 @@ async function loadTips(){
 /* ---------- biblioteca ---------- */
 let THEMES=['Todas'];let theme='Todas';
 /* uma cor fixa por tema, na ordem em que o tema aparece */
-const PALETTE=['#E8590C','#1C7ED6','#2B8A3E','#AE3EC9','#E03131','#0C8599','#F08C00'];
+const PALETTE=['#C2255C','#1C7ED6','#2B8A3E','#AE3EC9','#E03131','#0C8599','#F08C00'];
 const themeColor=x=>PALETTE[Math.max(0,THEMES.indexOf(x)-1)%PALETTE.length];
 /* gancho do reel: 2ª linha com marca-texto, 3ª em destaque, como nas capas dos vídeos */
 const hookHTML=t=>t.hook.map((l,i)=>i===1?`<mark>${esc(l)}</mark>`:i===2?`<em>${esc(l)}</em>`:esc(l)).join(' ');
