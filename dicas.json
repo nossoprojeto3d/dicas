@@ -617,6 +617,42 @@
       "busca": "fiapo teia de aranha stringing filamento úmido molhado umidade estalo estalando bolha secar filamento secador desidratador sílica guardar pla petg parte 2",
       "comparar": false,
       "video": "reel_15_teia-parte2.mp4"
+    },
+    {
+      "n": 16,
+      "titulo": "Topo sem furos em 3 ajustes",
+      "tema": "Acabamento",
+      "gancho": [
+        "O topo da sua",
+        "impressão 3D",
+        "sai furado?"
+      ],
+      "lead": "Buraquinhos e fios no topo da peça (pillowing) aparecem quando a casca de cima é fina demais ou não tem apoio. Três ajustes fecham o topo.",
+      "ajustes": [
+        {
+          "onde": "Aba Força · Casca superior",
+          "oque": "Camadas sólidas superiores",
+          "valor": "5",
+          "unidade": "camadas"
+        },
+        {
+          "onde": "Aba Força · Preenchimento",
+          "oque": "Densidade",
+          "valor": "20",
+          "unidade": "%"
+        },
+        {
+          "onde": "Filamento · Resfriamento",
+          "oque": "Ventoinha (PLA)",
+          "valor": "100",
+          "unidade": "%"
+        }
+      ],
+      "porque": "Mais camadas por cima fecham os buracos; um pouco mais de preenchimento dá apoio pro topo não afundar; e com a ventoinha no máximo o topo esfria rápido e não cai entre as linhas.",
+      "nota": "Em PETG, deixa a ventoinha entre 50 e 70%. Se o topo fechar mas ainda ficar áspero, veja a dica nº 01.",
+      "busca": "topo furado buracos no topo pillowing furinhos fios no topo camadas superiores casca superior top layers preenchimento ventoinha resfriamento acabamento",
+      "comparar": true,
+      "video": "reel_16_topo-furado.mp4"
     }
   ]
 }
