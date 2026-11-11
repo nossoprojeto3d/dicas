@@ -653,6 +653,54 @@
       "busca": "topo furado buracos no topo pillowing furinhos fios no topo camadas superiores casca superior top layers preenchimento ventoinha resfriamento acabamento",
       "comparar": true,
       "video": "reel_16_topo-furado.mp4"
+    },
+    {
+      "n": 17,
+      "titulo": "5 funções escondidas do Bambu Studio",
+      "tema": "Fatiador",
+      "gancho": [
+        "5 funções escondidas",
+        "do Bambu Studio",
+        "pra impressão 3D"
+      ],
+      "lead": "Cinco ferramentas do Bambu Studio que quase ninguém usa e que poupam tempo, e onde fica cada uma.",
+      "ajustes": [
+        {
+          "onde": "Barra de cima · Corte (tecla C) › Conectores",
+          "oque": "Cortar com pinos",
+          "valor": "Divide peça maior que a mesa com pinos de encaixe",
+          "unidade": ""
+        },
+        {
+          "onde": "Barra de cima · Texto (tecla T)",
+          "oque": "Texto em relevo",
+          "valor": "Nome, logo ou número direto na peça",
+          "unidade": ""
+        },
+        {
+          "onde": "Clique direito na peça · Preencher placa",
+          "oque": "Encher a mesa",
+          "valor": "Cópias num clique",
+          "unidade": ""
+        },
+        {
+          "onde": "Barra de cima · Altura de camada variável",
+          "oque": "Camada variável",
+          "valor": "Adaptativo + Suave",
+          "unidade": ""
+        },
+        {
+          "onde": "Pintura de cor (tecla N) · Balde",
+          "oque": "Pintar com balde",
+          "valor": "Pinta a face inteira num clique",
+          "unidade": ""
+        }
+      ],
+      "porque": "São ferramentas que já estão no fatiador e resolvem coisas que muita gente faz na mão ou em outro programa: dividir peça grande, escrever na peça, montar a mesa pra produção, imprimir mais rápido sem perder detalhe e pintar rápido.",
+      "nota": "Os nomes podem variar um pouco conforme a versão e o idioma do Bambu Studio. No Orca Slicer a maioria existe com nomes parecidos.",
+      "busca": "bambu studio funções escondidas truques atalhos cortar corte conectores pinos texto relevo emboss preencher placa cópias encher mesa altura de camada variável adaptativo pintura de cor balde",
+      "comparar": false,
+      "video": "reel_17_funcoes-bambu-studio.mp4"
     }
   ]
 }
