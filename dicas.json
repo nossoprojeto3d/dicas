@@ -701,6 +701,42 @@
       "busca": "bambu studio funções escondidas truques atalhos cortar corte conectores pinos texto relevo emboss preencher placa cópias encher mesa altura de camada variável adaptativo pintura de cor balde",
       "comparar": false,
       "video": "reel_17_funcoes-bambu-studio.mp4"
+    },
+    {
+      "n": 18,
+      "titulo": "Parede sem ondinhas (ghosting) em 3 ajustes",
+      "tema": "Acabamento",
+      "gancho": [
+        "Sua impressão 3D",
+        "tem ondinhas",
+        "na parede?"
+      ],
+      "lead": "Aquelas marcas repetidas logo depois de letras e cantos (ghosting) vêm da impressora vibrando nas curvas. Dá pra resolver com velocidade, aceleração e correias.",
+      "ajustes": [
+        {
+          "onde": "Aba Velocidade",
+          "oque": "Velocidade da parede externa",
+          "valor": "150",
+          "unidade": "mm/s"
+        },
+        {
+          "onde": "Aba Velocidade · Aceleração",
+          "oque": "Aceleração da parede externa",
+          "valor": "2000",
+          "unidade": "mm/s²"
+        },
+        {
+          "onde": "Impressora desligada",
+          "oque": "Correias",
+          "valor": "Firmes, sem folga",
+          "unidade": ""
+        }
+      ],
+      "porque": "Nas curvas e cantos o cabeçote freia e muda de direção. Rápido demais, ele balança e deixa um eco da forma na parede. Menos velocidade e aceleração na parede de fora e correias firmes acabam com o balanço.",
+      "nota": "Só a parede externa precisa ir mais devagar; o resto da peça pode continuar rápido. Valores de partida, o padrão varia por impressora.",
+      "busca": "ghosting ringing ondinhas ondulação eco marcas repetidas parede vibração velocidade parede externa aceleração correia folga acabamento",
+      "comparar": true,
+      "video": "reel_18_ondinhas-parede.mp4"
     }
   ]
 }
