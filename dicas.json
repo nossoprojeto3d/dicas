@@ -564,6 +564,42 @@
       "busca": "ghosting ringing ondinhas ondulação eco marcas repetidas parede vibração velocidade parede externa aceleração correia folga acabamento",
       "comparar": true,
       "video": "reel_18_ondinhas-parede.mp4"
+    },
+    {
+      "n": 19,
+      "titulo": "3 causas comuns de impressão que falha",
+      "tema": "Problemas",
+      "gancho": [
+        "De 100",
+        "impressões 3D",
+        "quantas falham?"
+      ],
+      "lead": "Não existe pesquisa oficial sobre isso: as estimativas da comunidade ficam entre 10 e 30 falhas a cada 100 impressões. Três causas comuns e como evitar cada uma.",
+      "ajustes": [
+        {
+          "onde": "Antes de imprimir",
+          "oque": "Primeira camada",
+          "valor": "Mesa limpa com álcool e nivelamento refeito",
+          "unidade": ""
+        },
+        {
+          "onde": "Filamento",
+          "oque": "Filamento úmido",
+          "valor": "Seco antes de imprimir e bem guardado",
+          "unidade": ""
+        },
+        {
+          "onde": "Bico",
+          "oque": "Bico sujo ou entupido",
+          "valor": "Limpo quando o fio sair torto ou falhar",
+          "unidade": ""
+        }
+      ],
+      "porque": "Primeira camada mal presa é a causa de falha mais citada por quem estuda o assunto. Filamento úmido estala e faz bolhas, e bico sujo deixa o fio fraco ou torto.",
+      "nota": "Os números de falha são estimativas da comunidade, não uma pesquisa oficial. O jeito certo de secar o filamento e de limpar o bico depende do material e da impressora.",
+      "busca": "falha impressão falhando 3d primeira camada não gruda filamento úmido bico entupido sujo causas problemas descolou estala bolhas",
+      "comparar": false,
+      "video": "reel_19_100-impressoes.mp4"
     }
   ]
 }
