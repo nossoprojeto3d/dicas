@@ -242,47 +242,6 @@
       "video": "reel_06_suporte-facil.mp4"
     },
     {
-      "n": 7,
-      "titulo": "Peça soltou? Pula ela e salva a placa",
-      "tema": "Problemas",
-      "gancho": [
-        "Uma peça soltou",
-        "na impressão 3D",
-        "e agora?"
-      ],
-      "lead": "Quando uma peça descola numa placa cheia, não para a impressão: pelo app Bambu Handy dá pra pular só a peça que soltou e deixar a impressora terminar as outras.",
-      "ajustes": [
-        {
-          "onde": "Celular",
-          "oque": "Abrir o app",
-          "valor": "Bambu Handy",
-          "unidade": ""
-        },
-        {
-          "onde": "Aba Dispositivo",
-          "oque": "Impressão em andamento",
-          "valor": "Pular (nunca Parar)",
-          "unidade": ""
-        },
-        {
-          "onde": "Mapa da placa",
-          "oque": "Selecionar",
-          "valor": "Só a peça que soltou",
-          "unidade": ""
-        },
-        {
-          "onde": "Confirmar",
-          "oque": "Resultado",
-          "valor": "As outras peças terminam",
-          "unidade": ""
-        }
-      ],
-      "porque": "Pular faz a impressora desviar só da peça que soltou. Parar joga fora a placa inteira; pular salva todo o resto.",
-      "busca": "peça soltou descolou solta placa cheia várias peças pular objeto pular peça skip object bambu handy bambu lab app não perder impressão salvar placa",
-      "comparar": false,
-      "video": "reel_07_pular-peca.mp4"
-    },
-    {
       "n": 8,
       "titulo": "Letra pequena nítida em 3 ajustes",
       "tema": "Acabamento",
@@ -317,54 +276,6 @@
       "busca": "letra pequena borrada relevo detalhe fino nítido chaveiro texto arachne clássico gerador de parede largura da linha parede externa superfície superior line width outer wall top surface bico 0.4",
       "comparar": true,
       "video": "reel_08_letra-nitida.mp4"
-    },
-    {
-      "n": 9,
-      "titulo": "Qual impressora pra começar a vender",
-      "tema": "Impressoras",
-      "gancho": [
-        "Vai vender",
-        "impressão 3D?",
-        "Qual impressora?"
-      ],
-      "lead": "Escolher a impressora errada pra começar um negócio de impressão 3D sai caro. Cada uma das 5 serve melhor pra um objetivo.",
-      "ajustes": [
-        {
-          "onde": "Pra aprender",
-          "oque": "Kobra 3 V2",
-          "valor": "Preço de entrada, uma cor",
-          "unidade": ""
-        },
-        {
-          "onde": "Pra começar a vender (a que eu indico)",
-          "oque": "Bambu A1",
-          "valor": "Fácil de usar, até 4 cores com AMS Lite",
-          "unidade": ""
-        },
-        {
-          "onde": "Pra peças coloridas",
-          "oque": "Creality + CFS",
-          "valor": "Até 4 cores, bom preço",
-          "unidade": ""
-        },
-        {
-          "onde": "Pra produzir em quantidade",
-          "oque": "Creator 5",
-          "valor": "Rápida, 4 cores, produção",
-          "unidade": ""
-        },
-        {
-          "onde": "Pra não desperdiçar",
-          "oque": "Snapmaker U1",
-          "valor": "4 bicos, troca de cor quase sem desperdício",
-          "unidade": ""
-        }
-      ],
-      "porque": "Quem está aprendendo não precisa gastar muito; quem quer vender precisa de facilidade e cor; quem já vende bastante precisa de velocidade; e com 4 bicos a troca de cor quase não joga filamento fora, o que vira economia no fim do mês.",
-      "nota": "Preço e disponibilidade mudam bastante; confere antes de comprar.",
-      "busca": "qual impressora comprar começar negócio vender primeira impressora 3d kobra 3 v2 anycubic bambu a1 ams lite creality cfs creator 5 flashforge snapmaker u1 multicolor 4 cores desperdício",
-      "comparar": false,
-      "video": "reel_09_qual-impressora.mp4"
     },
     {
       "n": 10,
@@ -493,42 +404,6 @@
       "video": "reel_12_costura-escondida.mp4"
     },
     {
-      "n": 13,
-      "titulo": "Peça retinha, sem empenar, em 3 ajustes",
-      "tema": "Problemas",
-      "gancho": [
-        "A ponta da sua",
-        "impressão 3D",
-        "levanta?"
-      ],
-      "lead": "Quando a base esfria rápido, ela encolhe e puxa as pontas pra cima (warping). Borda, mesa limpa e um pouco mais de calor na mesa seguram a peça retinha.",
-      "ajustes": [
-        {
-          "onde": "Aba Outros · Borda (brim)",
-          "oque": "Largura da borda",
-          "valor": "5",
-          "unidade": "mm"
-        },
-        {
-          "onde": "Mesa",
-          "oque": "Limpeza",
-          "valor": "Detergente neutro + água, secar bem",
-          "unidade": ""
-        },
-        {
-          "onde": "Filamento · Mesa",
-          "oque": "Temperatura da mesa",
-          "valor": "+5 °C (ex.: PLA 55 → 60)",
-          "unidade": ""
-        }
-      ],
-      "porque": "A borda aumenta a área grudada e segura as pontas; gordura de dedo é o que mais faz a ponta descolar; e com a mesa um pouco mais quente a base esfria devagar e não encolhe de uma vez.",
-      "nota": "Imprime longe de ventilador e ar-condicionado. Em peça grande e reta, arredondar os cantos no modelo também ajuda. Se a primeira camada nem gruda, veja a dica nº 04.",
-      "busca": "warping empenando empenou ponta levantando canto levantando descolando borda brim mesa limpa detergente temperatura da mesa base curvando",
-      "comparar": false,
-      "video": "reel_13_peca-empenando.mp4"
-    },
-    {
       "n": 14,
       "titulo": "Encaixe na medida em 4 ajustes",
       "tema": "Precisão",
@@ -569,54 +444,6 @@
       "busca": "encaixe não entra furo menor pino maior tolerância folga medida precisão compensação de furo hole compensation contorno contour pé de elefante elephant foot lixar",
       "comparar": false,
       "video": "reel_14_encaixe-na-medida.mp4"
-    },
-    {
-      "n": 15,
-      "titulo": "Teia de aranha, parte 2: filamento úmido",
-      "tema": "Filamento",
-      "gancho": [
-        "Sua impressão 3D",
-        "ainda sai com",
-        "teia de aranha?"
-      ],
-      "lead": "Se a retração já tá certa (dica nº 02) e ainda sai fiapo, o problema é filamento úmido. Dá pra secar de 3 jeitos e guardar do jeito certo.",
-      "ajustes": [
-        {
-          "onde": "Sinais",
-          "oque": "Filamento úmido",
-          "valor": "Estalo, bolhinha e fiapo",
-          "unidade": ""
-        },
-        {
-          "onde": "Jeito 1 · Secador de filamento",
-          "oque": "PLA 50 °C · PETG 65 °C",
-          "valor": "6",
-          "unidade": "h"
-        },
-        {
-          "onde": "Jeito 2 · Desidratador de alimentos",
-          "oque": "Mesma temperatura",
-          "valor": "6",
-          "unidade": "h"
-        },
-        {
-          "onde": "Jeito 3 · Mesa da impressora",
-          "oque": "Mesa a 60 °C, rolo coberto com caixa de papelão",
-          "valor": "6",
-          "unidade": "h"
-        },
-        {
-          "onde": "Guardar",
-          "oque": "Rolo aberto",
-          "valor": "Pote ou saco fechado com sílica",
-          "unidade": ""
-        }
-      ],
-      "porque": "O filamento puxa umidade do ar. No bico, essa água ferve: estala, faz bolhinha e solta fiapo, mesmo com a retração certa. Secando, o fiapo some.",
-      "nota": "Não passa de 55 °C com PLA, senão o rolo pode deformar. No secador dá pra imprimir direto de dentro dele. Parte 1 (retração): dica nº 02.",
-      "busca": "fiapo teia de aranha stringing filamento úmido molhado umidade estalo estalando bolha secar filamento secador desidratador sílica guardar pla petg parte 2",
-      "comparar": false,
-      "video": "reel_15_teia-parte2.mp4"
     },
     {
       "n": 16,
