@@ -103,7 +103,6 @@ h1{font-weight:900;font-size:clamp(2.5rem,11vw,3.5rem);line-height:.98;letter-sp
 .why{margin:0;padding-top:12px;border-top:1px dashed var(--line-2);font-size:.92rem;color:var(--muted)}
 .why b{color:var(--ink)}
 .note{display:flex;align-items:center;gap:8px;font-size:.88rem;color:var(--muted);margin:0}
-.actions{display:flex;gap:10px;flex-wrap:wrap}
 /* parceiro Voolt3D no fim da ficha: mesmo link de afiliado e cupom do site principal */
 .voolt{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px;display:grid;gap:12px}
 .voolt-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
@@ -250,7 +249,6 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 const isNum=v=>/^[−-]?\d+([.,]\d+)?$/.test(String(v).trim());
 function setsHTML(t){return `<div class="sets">${t.sets.map(s=>{const num=isNum(s[2]),long=!num&&String(s[2]).length>12;return `<div class="set${long?' long':''}"><span class="where">${esc(s[0])}</span><span class="what">${esc(s[1])}</span><span class="val"><b${num?'':' class="t"'}>${esc(s[2])}${s[3]?`<small>${esc(s[3])}</small>`:''}</b>${num?`<button class="copy" type="button" data-copy="${esc(s[2])}" aria-label="Copiar ${esc(s[2])}">Copiar</button>`:''}</span></div>`}).join('')}</div>`}
 const whyHTML=t=>`<p class="why"><b>Por quê:</b> ${esc(t.why)}</p>`;
-const allText=t=>t.sets.map(s=>`${s[1]}: ${s[2]}${s[3]?' '+s[3]:''}`).join('\n');
 
 async function loadTips(){
   try{const r=await fetch('dicas.json',{cache:'no-cache'});const d=await r.json();
@@ -302,7 +300,6 @@ function openTip(n,fromHash){const t=TIPS.find(x=>x.n===n);if(!t)return;lastFocu
    ${t.cmp?`<div class="compare" role="slider" tabindex="0" aria-label="Comparar topo antes e depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><canvas width="1200" height="600"></canvas><span class="lbl l">Antes</span><span class="lbl r">Depois</span></div><p class="hint">Arraste pra comparar o topo antes e depois.</p>`:''}
    <div class="card">${setsHTML(t)}${whyHTML(t)}</div>
    ${t.note?`<p class="note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(t.note)}</p>`:''}
-   <div class="actions"><button class="btn btn-ink" type="button" data-copyall="${t.n}">Copiar tudo</button></div>
    ${VOOLT_HTML}`;
   sheet.hidden=false;scrim.hidden=false;requestAnimationFrame(()=>{sheet.classList.add('open');scrim.classList.add('open')});
   document.body.style.overflow='hidden';sheet.scrollTop=0;
@@ -318,7 +315,6 @@ window.addEventListener('hashchange',fromHash);
 /* ---------- copiar ---------- */
 async function copyText(txt,btn,label){try{await navigator.clipboard.writeText(txt);btn.classList.add('done');btn.textContent='Copiado'}catch(e){btn.textContent=txt}setTimeout(()=>{btn.classList.remove('done');btn.textContent=label},1600)}
 document.addEventListener('click',e=>{const b=e.target.closest('.copy');if(!b)return;copyText(b.dataset.copy,b,'Copiar');if(b.dataset.copy===VOOLT_CUPOM)window.np3dTrack?.('cupom_copiado',{parceiro:'voolt3d',local:'dicas'})});
-document.addEventListener('click',e=>{const b=e.target.closest('[data-copyall]');if(b){const t=TIPS.find(x=>x.n===b.dataset.copyall);if(t)copyText(allText(t),b,'Copiar tudo')}});
 document.getElementById('hash').addEventListener('click',e=>copyText('#dicasnossoprojeto3d',e.currentTarget,'#dicasnossoprojeto3d'));
 
 /* ---------- shared drawing ---------- */
