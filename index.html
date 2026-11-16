@@ -103,6 +103,17 @@ h1{font-weight:900;font-size:clamp(2.5rem,11vw,3.5rem);line-height:.98;letter-sp
 .why b{color:var(--ink)}
 .note{display:flex;align-items:center;gap:8px;font-size:.88rem;color:var(--muted);margin:0}
 .actions{display:flex;gap:10px;flex-wrap:wrap}
+/* parceiro Voolt3D no fim da ficha: mesmo link de afiliado e cupom do site principal */
+.voolt{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px;display:grid;gap:12px}
+.voolt-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.voolt-logo{display:inline-flex;align-items:center;height:38px;padding:0 12px;border-radius:10px;background:#fff;border:1px solid var(--line)}
+.voolt-logo img{height:22px;width:auto;display:block}
+.voolt-tag{font:700 .78rem var(--f-body);color:var(--accent-ink);background:var(--accent-soft);padding:5px 10px;border-radius:999px}
+.voolt p{margin:0;color:var(--muted);font-size:.92rem}
+.voolt-acao{display:flex;gap:10px;flex-wrap:wrap}
+.voolt-cupom{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 8px 0 14px;border-radius:12px;background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--line-2)}
+.voolt-cupom b{font:700 .95rem var(--f-mono);letter-spacing:.04em;color:var(--ink)}
+.voolt-acao .btn{min-height:44px;flex:1 1 180px}
 
 /* antes e depois */
 .compare{position:relative;border-radius:16px;overflow:hidden;touch-action:pan-y;user-select:none;cursor:ew-resize;background:var(--surface)}
@@ -273,6 +284,14 @@ document.getElementById('numform').addEventListener('submit',e=>{e.preventDefaul
   const n=v.padStart(2,'0');if(!TIPS.find(t=>t.n===n)){err.textContent=`A dica nº ${n} ainda não está aqui. Confere o número no final do vídeo.`;err.hidden=false;return}
   err.hidden=true;openTip(n)});
 
+/* ---------- parceiro Voolt3D (aparece no fim de cada ficha) ---------- */
+const VOOLT_LINK='https://afiliado.c2cseller.com/voolt3d-nosso-projeto-b0e5828bb12818a1',VOOLT_CUPOM='NOSSOPROJETO';
+const VOOLT_HTML=`<aside class="voolt" aria-label="Filamento que usamos">
+   <div class="voolt-top"><span class="voolt-logo"><img src="voolt3d.webp" alt="Voolt3D" width="640" height="162" loading="lazy" decoding="async"></span><span class="voolt-tag">até 8% off</span></div>
+   <p>O filamento que a gente usa nas impressões. Com o nosso cupom sai mais barato.</p>
+   <div class="voolt-acao"><span class="voolt-cupom"><b>${VOOLT_CUPOM}</b><button class="copy" type="button" data-copy="${VOOLT_CUPOM}" aria-label="Copiar o cupom ${VOOLT_CUPOM}">Copiar</button></span>
+   <a class="btn btn-ink" href="${VOOLT_LINK}" target="_blank" rel="sponsored noopener noreferrer">Ir para a Voolt3D →</a></div></aside>`;
+
 /* ---------- ficha completa ---------- */
 const sheet=document.getElementById('sheet'),scrim=document.getElementById('scrim'),body=document.getElementById('sheetBody');let lastFocus=null;
 function openTip(n,fromHash){const t=TIPS.find(x=>x.n===n);if(!t)return;lastFocus=document.activeElement;
@@ -282,7 +301,8 @@ function openTip(n,fromHash){const t=TIPS.find(x=>x.n===n);if(!t)return;lastFocu
    ${t.cmp?`<div class="compare" role="slider" tabindex="0" aria-label="Comparar topo antes e depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><canvas width="1200" height="600"></canvas><span class="lbl l">Antes</span><span class="lbl r">Depois</span></div><p class="hint">Arraste pra comparar o topo antes e depois.</p>`:''}
    <div class="card">${setsHTML(t)}${whyHTML(t)}</div>
    ${t.note?`<p class="note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(t.note)}</p>`:''}
-   <div class="actions"><button class="btn btn-ink" type="button" data-copyall="${t.n}">Copiar tudo</button></div>`;
+   <div class="actions"><button class="btn btn-ink" type="button" data-copyall="${t.n}">Copiar tudo</button></div>
+   ${VOOLT_HTML}`;
   sheet.hidden=false;scrim.hidden=false;requestAnimationFrame(()=>{sheet.classList.add('open');scrim.classList.add('open')});
   document.body.style.overflow='hidden';sheet.scrollTop=0;
   const cmp=body.querySelector('.compare');if(cmp)initCompare(cmp);
