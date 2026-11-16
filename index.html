@@ -104,24 +104,24 @@ h1{font-weight:900;font-size:clamp(2.5rem,11vw,3.5rem);line-height:.98;letter-sp
 .why{margin:0;padding-top:12px;border-top:1px dashed var(--line-2);font-size:.92rem;color:var(--muted)}
 .why b{color:var(--ink)}
 .note{display:flex;align-items:center;gap:8px;font-size:.88rem;color:var(--muted);margin:0}
-/* parceiro Voolt3D no fim da ficha: só o ticket dourado do site principal, compacto (copiar e ir para a loja separados) */
-.voolt{--ouro:#C9A227;--ouro-texto:#8A6A0A;--ouro-grad:linear-gradient(135deg,#E8C873,#C9A227 60%,#B08A17);margin-top:22px}
+/* parceiro Voolt3D no fim da ficha: ticket do site principal em framboesa (a cor do Dicas), compacto (copiar e ir para a loja separados) */
+.voolt{--rosa-grad:linear-gradient(135deg,#E5487F,#C2255C 60%,#9C1A49);margin-top:22px}
 .cupom{--corte:68px;display:grid;grid-template-columns:var(--corte) minmax(0,1fr) auto;align-items:stretch;min-height:76px;border-radius:14px;
-  background:linear-gradient(135deg,#fbf3dc,#f6edd0);color:#1f1c14;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--accent-soft) 55%,var(--surface)),var(--accent-soft));color:var(--ink);
   -webkit-mask:radial-gradient(circle 9px at var(--corte) 0,#0000 96%,#000),radial-gradient(circle 9px at var(--corte) 100%,#0000 96%,#000);-webkit-mask-composite:source-in;
   mask:radial-gradient(circle 9px at var(--corte) 0,#0000 96%,#000),radial-gradient(circle 9px at var(--corte) 100%,#0000 96%,#000);mask-composite:intersect}
-.cupom-selo{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;background:var(--ouro-grad);color:#151005;border-right:2px dashed rgba(255,255,255,.75)}
+.cupom-selo{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;background:var(--rosa-grad);color:#fff;border-right:2px dashed rgba(255,255,255,.7)}
 .cupom-selo b{font:800 22px/1 var(--f-body);margin:2px 0}
 .cupom-selo small{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 .cupom-corpo{display:flex;flex-direction:column;justify-content:center;gap:5px;padding:10px 8px 10px 16px;min-width:0}
-.cupom-rotulo{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ouro-texto)}
+.cupom-rotulo{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}
 .cupom-codigo{font:800 16px/1 var(--f-body);letter-spacing:.03em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .cupom-botoes{align-self:center;display:flex;gap:6px;margin-right:12px}
 .cupom-acao,.cupom-ir{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;border-radius:10px;font:700 13px/1 var(--f-body);cursor:pointer;
   transition:background-color .25s ease,color .25s ease,border-color .25s ease,transform .3s cubic-bezier(.2,.9,.25,1.15)}
-.cupom-acao{padding:0 12px;background:#fff;border:1px solid #eadfbf;color:var(--ouro-texto)}
-.cupom-acao:hover{border-color:var(--ouro)}
-.cupom-ir{width:44px;background:var(--ouro-grad);color:#151005;text-decoration:none;font-size:17px;box-shadow:0 6px 16px -8px rgba(201,162,39,.8)}
+.cupom-acao{padding:0 12px;background:var(--surface);border:1px solid var(--mark);color:var(--accent-ink)}
+.cupom-acao:hover{border-color:var(--accent)}
+.cupom-ir{width:44px;background:var(--rosa-grad);color:#fff;text-decoration:none;font-size:17px;box-shadow:0 6px 16px -8px rgba(194,37,92,.8)}
 .cupom-acao:active,.cupom-ir:active{transform:scale(.95)}
 .cupom.copiado .cupom-acao{background:#1f8f4e;border-color:#1f8f4e;color:#fff}
 .cupom.copiado .cupom-acao::before{content:"✓"}
