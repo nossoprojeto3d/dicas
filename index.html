@@ -104,37 +104,33 @@ h1{font-weight:900;font-size:clamp(2.5rem,11vw,3.5rem);line-height:.98;letter-sp
 .why{margin:0;padding-top:12px;border-top:1px dashed var(--line-2);font-size:.92rem;color:var(--muted)}
 .why b{color:var(--ink)}
 .note{display:flex;align-items:center;gap:8px;font-size:.88rem;color:var(--muted);margin:0}
-/* parceiro Voolt3D no fim da ficha: mesmo link de afiliado e cupom do site principal */
-/* parceiro Voolt3D no fim da ficha: igual ao do site principal (ticket dourado), empilhado porque a ficha é estreita */
-.voolt{--ouro:#C9A227;--ouro-texto:#8A6A0A;--ouro-grad:linear-gradient(135deg,#E8C873,#C9A227 60%,#B08A17);
-  margin-top:22px;padding:22px;border-radius:20px;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
-.voolt-logo{align-self:flex-start;display:inline-flex;align-items:center;height:44px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:#fff}
-.voolt-logo img{height:26px;width:auto;display:block}
-.voolt h3{margin:4px 0 0;font-size:1.15rem;font-weight:800;color:var(--ink)}
-.voolt p{margin:0 0 6px;color:var(--muted);font-size:.92rem}
-.cupom{--corte:72px;display:grid;grid-template-columns:var(--corte) minmax(0,1fr) auto;align-items:stretch;width:100%;min-height:76px;padding:0;border:0;border-radius:14px;
-  background:linear-gradient(135deg,#fbf3dc,#f6edd0);cursor:pointer;font:inherit;color:#1f1c14;text-align:left;transition:transform .35s cubic-bezier(.2,.9,.25,1.15);
+/* parceiro Voolt3D no fim da ficha: só o ticket dourado do site principal, compacto (copiar e ir para a loja separados) */
+.voolt{--ouro:#C9A227;--ouro-texto:#8A6A0A;--ouro-grad:linear-gradient(135deg,#E8C873,#C9A227 60%,#B08A17);margin-top:22px}
+.cupom{--corte:68px;display:grid;grid-template-columns:var(--corte) minmax(0,1fr) auto;align-items:stretch;min-height:76px;border-radius:14px;
+  background:linear-gradient(135deg,#fbf3dc,#f6edd0);color:#1f1c14;
   -webkit-mask:radial-gradient(circle 9px at var(--corte) 0,#0000 96%,#000),radial-gradient(circle 9px at var(--corte) 100%,#0000 96%,#000);-webkit-mask-composite:source-in;
   mask:radial-gradient(circle 9px at var(--corte) 0,#0000 96%,#000),radial-gradient(circle 9px at var(--corte) 100%,#0000 96%,#000);mask-composite:intersect}
-.cupom:hover{transform:translateY(-2px)}
 .cupom-selo{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;background:var(--ouro-grad);color:#151005;border-right:2px dashed rgba(255,255,255,.75)}
-.cupom-selo b{font:800 24px/1 var(--f-body);margin:2px 0}
-.cupom-selo small{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-.cupom-corpo{display:flex;flex-direction:column;justify-content:center;gap:5px;padding:12px 12px 12px 18px;min-width:0}
-.cupom-rotulo{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ouro-texto)}
-.cupom-codigo{font:800 17px/1 var(--f-body);letter-spacing:.03em;overflow:hidden;text-overflow:ellipsis}
-.cupom-acao{align-self:center;display:flex;align-items:center;gap:6px;min-height:40px;margin-right:14px;padding:0 14px;border-radius:10px;background:#fff;border:1px solid #eadfbf;
-  font-size:13px;font-weight:700;color:var(--ouro-texto);transition:background-color .25s ease,color .25s ease,border-color .25s ease}
-.cupom:hover .cupom-acao{border-color:var(--ouro)}
-.cupom:focus-visible{outline:none}
-.cupom:focus-visible .cupom-acao{outline:2px solid var(--ouro-texto);outline-offset:2px}
+.cupom-selo b{font:800 22px/1 var(--f-body);margin:2px 0}
+.cupom-selo small{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.cupom-corpo{display:flex;flex-direction:column;justify-content:center;gap:5px;padding:10px 8px 10px 16px;min-width:0}
+.cupom-rotulo{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ouro-texto)}
+.cupom-codigo{font:800 16px/1 var(--f-body);letter-spacing:.03em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cupom-botoes{align-self:center;display:flex;gap:6px;margin-right:12px}
+.cupom-acao,.cupom-ir{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;border-radius:10px;font:700 13px/1 var(--f-body);cursor:pointer;
+  transition:background-color .25s ease,color .25s ease,border-color .25s ease,transform .3s cubic-bezier(.2,.9,.25,1.15)}
+.cupom-acao{padding:0 12px;background:#fff;border:1px solid #eadfbf;color:var(--ouro-texto)}
+.cupom-acao:hover{border-color:var(--ouro)}
+.cupom-ir{width:44px;background:var(--ouro-grad);color:#151005;text-decoration:none;font-size:17px;box-shadow:0 6px 16px -8px rgba(201,162,39,.8)}
+.cupom-acao:active,.cupom-ir:active{transform:scale(.95)}
 .cupom.copiado .cupom-acao{background:#1f8f4e;border-color:#1f8f4e;color:#fff}
 .cupom.copiado .cupom-acao::before{content:"✓"}
 .cupom.copiado{animation:carimbo .5s cubic-bezier(.2,.9,.25,1.15)}
-@keyframes carimbo{40%{transform:scale(1.035)}}
-.voolt-ir{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border-radius:14px;background:var(--ouro-grad);color:#151005;font:600 15px/1 var(--f-body);
-  text-decoration:none;box-shadow:0 8px 22px -8px rgba(201,162,39,.7);transition:transform .35s cubic-bezier(.2,.9,.25,1.15)}
-.voolt-ir:hover{transform:translateY(-2px)}
+@keyframes carimbo{40%{transform:scale(1.025)}}
+/* celular estreito: selo menor e "Copiar" vira só o ícone, para o código caber inteiro */
+@media (max-width:420px){.cupom{--corte:56px}.cupom-selo b{font-size:19px}.cupom-corpo{padding-left:12px}.cupom-codigo{font-size:14.5px}.cupom-botoes{margin-right:8px}}
+@media (max-width:380px){.cupom-acao{width:44px;padding:0;font-size:0}.cupom-acao::after{content:"⧉";font-size:17px}.cupom.copiado .cupom-acao::before{font-size:17px}.cupom.copiado .cupom-acao::after{content:none}}
+@media (max-width:350px){.cupom{--corte:48px}.cupom-selo b{font-size:16px}.cupom-selo small{font-size:8.5px}.cupom-corpo{padding:10px 4px 10px 10px}.cupom-codigo{font-size:13px;letter-spacing:0}.cupom-rotulo{letter-spacing:.06em}}
 
 /* antes e depois */
 
@@ -300,15 +296,13 @@ document.getElementById('numform').addEventListener('submit',e=>{e.preventDefaul
 
 /* ---------- parceiro Voolt3D (aparece no fim de cada ficha) ---------- */
 const VOOLT_LINK='https://afiliado.c2cseller.com/voolt3d-nosso-projeto-b0e5828bb12818a1',VOOLT_CUPOM='NOSSOPROJETO';
-const VOOLT_HTML=`<aside class="voolt" aria-label="Filamentos com desconto">
-   <span class="voolt-logo"><img src="voolt3d.webp" alt="Voolt3D" width="640" height="162" loading="lazy" decoding="async"></span>
-   <h3>Filamentos com desconto</h3>
-   <p>Filamentos da Voolt3D com até 8% de desconto usando o nosso cupom.</p>
-   <button type="button" class="cupom" data-cupom="${VOOLT_CUPOM}" aria-label="Copiar o cupom ${VOOLT_CUPOM}">
+const VOOLT_HTML=`<aside class="voolt" aria-label="Cupom de desconto da Voolt3D">
+   <div class="cupom">
      <span class="cupom-selo" aria-hidden="true"><small>até</small><b>8%</b><small>off</small></span>
-     <span class="cupom-corpo"><span class="cupom-rotulo">Cupom</span><span class="cupom-codigo">${VOOLT_CUPOM}</span></span>
-     <span class="cupom-acao">Copiar</span></button>
-   <a class="voolt-ir" href="${VOOLT_LINK}" data-link="dicas.voolt" data-evento="clique_afiliado" data-parceiro="voolt3d" target="_blank" rel="sponsored noopener noreferrer">Ir para a Voolt3D ↗</a></aside>`;
+     <span class="cupom-corpo"><span class="cupom-rotulo">Voolt3D · Cupom</span><span class="cupom-codigo">${VOOLT_CUPOM}</span></span>
+     <span class="cupom-botoes"><button type="button" class="cupom-acao" data-cupom="${VOOLT_CUPOM}" aria-label="Copiar o cupom ${VOOLT_CUPOM}">Copiar</button>
+     <a class="cupom-ir" href="${VOOLT_LINK}" data-link="dicas.voolt" data-evento="clique_afiliado" data-parceiro="voolt3d" target="_blank" rel="sponsored noopener noreferrer" aria-label="Ir para a Voolt3D">↗</a></span>
+   </div></aside>`;
 
 /* ---------- ficha completa ---------- */
 const wrap=document.querySelector('.wrap'),tela=document.getElementById('tela'),telaBody=document.getElementById('telaBody'),telaNav=document.getElementById('telaNav');
@@ -341,8 +335,8 @@ window.addEventListener('hashchange',rota);
 async function copyText(txt,btn,label){try{await navigator.clipboard.writeText(txt);btn.classList.add('done');btn.textContent='Copiado'}catch(e){btn.textContent=txt}setTimeout(()=>{btn.classList.remove('done');btn.textContent=label},1600)}
 document.addEventListener('click',e=>{const b=e.target.closest('.copy');if(b)copyText(b.dataset.copy,b,'Copiar')});
 /* cupom da Voolt3D: copia, troca o rótulo por "Copiado" e mede */
-document.addEventListener('click',async e=>{const b=e.target.closest('.cupom');if(!b)return;const r=b.querySelector('.cupom-acao');
-  try{await navigator.clipboard.writeText(b.dataset.cupom)}catch(_){}
+document.addEventListener('click',async e=>{const r=e.target.closest('[data-cupom]');if(!r)return;const b=r.closest('.cupom');
+  try{await navigator.clipboard.writeText(r.dataset.cupom)}catch(_){}
   b.classList.add('copiado');r.textContent='Copiado';setTimeout(()=>{b.classList.remove('copiado');r.textContent='Copiar'},1800);
   window.np3dTrack?.('cupom_copiado',{parceiro:'voolt3d',local:'dicas'})});
 document.getElementById('hash').addEventListener('click',e=>copyText('#dicasnossoprojeto3d',e.currentTarget,'#dicasnossoprojeto3d'));
