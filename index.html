@@ -23,6 +23,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>[hidden]{display:none!important}img{max-width:100%}body{margin:0}</style>
 <title>Dicas Nosso Projeto 3D</title>
+<script src="medicao.js" defer></script>
 </head>
 <body>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +34,7 @@
    Layout: coluna de celular (máx. 600px). No computador (≥960px): barra lateral fixa com título, número, busca e filtros; à direita os cartões das dicas (o gancho do reel faz o papel de capa). */
 :root{
   --bg:#F6F4EF; --surface:#FFFFFF; --ink:#141414; --muted:#68645C; --line:#E6E1D6; --line-2:#D5CFC2;
-  --accent:#C2255C; --accent-ink:#9C1A49; --accent-soft:#FBE3EC; --mark:#FFCADC; --ok:#1F9D55; --err:#C2383D;
+  --accent:#C2255C; --accent-ink:#9C1A49; --np3d-aviso-acento:#C2255C; --np3d-aviso-sobre-acento:#fff; --accent-soft:#FBE3EC; --mark:#FFCADC; --ok:#1F9D55; --err:#C2383D;
   --f-body:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
@@ -290,7 +291,7 @@ const VOOLT_HTML=`<aside class="voolt" aria-label="Filamento que usamos">
    <div class="voolt-top"><span class="voolt-logo"><img src="voolt3d.webp" alt="Voolt3D" width="640" height="162" loading="lazy" decoding="async"></span><span class="voolt-tag">até 8% off</span></div>
    <p>O filamento que a gente usa nas impressões. Com o nosso cupom sai mais barato.</p>
    <div class="voolt-acao"><span class="voolt-cupom"><b>${VOOLT_CUPOM}</b><button class="copy" type="button" data-copy="${VOOLT_CUPOM}" aria-label="Copiar o cupom ${VOOLT_CUPOM}">Copiar</button></span>
-   <a class="btn btn-ink" href="${VOOLT_LINK}" target="_blank" rel="sponsored noopener noreferrer">Ir para a Voolt3D →</a></div></aside>`;
+   <a class="btn btn-ink" href="${VOOLT_LINK}" data-link="dicas.voolt" data-evento="clique_afiliado" data-parceiro="voolt3d" target="_blank" rel="sponsored noopener noreferrer">Ir para a Voolt3D →</a></div></aside>`;
 
 /* ---------- ficha completa ---------- */
 const sheet=document.getElementById('sheet'),scrim=document.getElementById('scrim'),body=document.getElementById('sheetBody');let lastFocus=null;
@@ -316,7 +317,7 @@ window.addEventListener('hashchange',fromHash);
 
 /* ---------- copiar ---------- */
 async function copyText(txt,btn,label){try{await navigator.clipboard.writeText(txt);btn.classList.add('done');btn.textContent='Copiado'}catch(e){btn.textContent=txt}setTimeout(()=>{btn.classList.remove('done');btn.textContent=label},1600)}
-document.addEventListener('click',e=>{const b=e.target.closest('.copy');if(b)copyText(b.dataset.copy,b,'Copiar')});
+document.addEventListener('click',e=>{const b=e.target.closest('.copy');if(!b)return;copyText(b.dataset.copy,b,'Copiar');if(b.dataset.copy===VOOLT_CUPOM)window.np3dTrack?.('cupom_copiado',{parceiro:'voolt3d',local:'dicas'})});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-copyall]');if(b){const t=TIPS.find(x=>x.n===b.dataset.copyall);if(t)copyText(allText(t),b,'Copiar tudo')}});
 document.getElementById('hash').addEventListener('click',e=>copyText('#dicasnossoprojeto3d',e.currentTarget,'#dicasnossoprojeto3d'));
 
