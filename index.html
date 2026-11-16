@@ -116,11 +116,6 @@ h1{font-weight:900;font-size:clamp(2.5rem,11vw,3.5rem);line-height:.98;letter-sp
 .voolt-acao .btn{min-height:44px;flex:1 1 180px}
 
 /* antes e depois */
-.compare{position:relative;border-radius:16px;overflow:hidden;touch-action:pan-y;user-select:none;cursor:ew-resize;background:var(--surface)}
-.compare canvas{display:block;width:100%;height:auto;aspect-ratio:600/300}
-.compare .lbl{position:absolute;top:10px;font:700 .72rem var(--f-mono);text-transform:uppercase;padding:4px 9px;border-radius:8px;color:#fff;pointer-events:none}
-.compare .l{left:10px;background:#D9464B}.compare .r{right:10px;background:#1F9D55}
-.hint{margin:-6px 0 0;color:var(--muted);font-size:.85rem}
 
 /* biblioteca */
 .finder{display:flex;flex-direction:column;gap:16px}
@@ -253,7 +248,7 @@ const whyHTML=t=>`<p class="why"><b>Por quê:</b> ${esc(t.why)}</p>`;
 async function loadTips(){
   try{const r=await fetch('dicas.json',{cache:'no-cache'});const d=await r.json();
     TIPS=d.dicas.map(x=>({n:String(x.n).padStart(2,'0'),t:x.titulo,tema:x.tema,hook:x.gancho,lead:x.lead,k:(x.busca||''),
-      sets:x.ajustes.map(a=>[a.onde,a.oque,a.valor,a.unidade||'']),why:x.porque,note:x.nota||'',cmp:!!x.comparar,
+      sets:x.ajustes.map(a=>[a.onde,a.oque,a.valor,a.unidade||'']),why:x.porque,note:x.nota||'',
       })).sort((a,b)=>b.n.localeCompare(a.n));
   }catch(e){TIPS=[]}
   THEMES=['Todas',...new Set(TIPS.map(t=>t.tema))];
@@ -297,13 +292,11 @@ function openTip(n,fromHash){const t=TIPS.find(x=>x.n===n);if(!t)return;lastFocu
   body.innerHTML=`<div class="meta"><span>Nº ${t.n} · ${esc(t.tema)}</span></div>
    <h2 id="sheet-title">${esc(t.t)}</h2>
    <p class="lead">${esc(t.lead)}</p>
-   ${t.cmp?`<div class="compare" role="slider" tabindex="0" aria-label="Comparar topo antes e depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><canvas width="1200" height="600"></canvas><span class="lbl l">Antes</span><span class="lbl r">Depois</span></div><p class="hint">Arraste pra comparar o topo antes e depois.</p>`:''}
    <div class="card">${setsHTML(t)}${whyHTML(t)}</div>
    ${t.note?`<p class="note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(t.note)}</p>`:''}
    ${VOOLT_HTML}`;
   sheet.hidden=false;scrim.hidden=false;requestAnimationFrame(()=>{sheet.classList.add('open');scrim.classList.add('open')});
   document.body.style.overflow='hidden';sheet.scrollTop=0;
-  const cmp=body.querySelector('.compare');if(cmp)initCompare(cmp);
   if(!fromHash)history.replaceState(null,'','#dica-'+t.n);document.getElementById('close').focus();}
 function closeTip(){sheet.classList.remove('open');scrim.classList.remove('open');document.body.style.overflow='';
   setTimeout(()=>{sheet.hidden=true;scrim.hidden=true},RM?0:280);history.replaceState(null,'',location.pathname+location.search);if(lastFocus)lastFocus.focus();}
@@ -317,35 +310,6 @@ async function copyText(txt,btn,label){try{await navigator.clipboard.writeText(t
 document.addEventListener('click',e=>{const b=e.target.closest('.copy');if(!b)return;copyText(b.dataset.copy,b,'Copiar');if(b.dataset.copy===VOOLT_CUPOM)window.np3dTrack?.('cupom_copiado',{parceiro:'voolt3d',local:'dicas'})});
 document.getElementById('hash').addEventListener('click',e=>copyText('#dicasnossoprojeto3d',e.currentTarget,'#dicasnossoprojeto3d'));
 
-/* ---------- shared drawing ---------- */
-function rng(s){return()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
-const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
-
-/* ---------- before/after compare ---------- */
-function initCompare(box){
-const cv=box.querySelector('canvas'),c=cv.getContext('2d'),W=cv.width,H=cv.height;
-const R=rng(7),lines=[];for(let i=0;i<110;i++){const p=[];for(let k=0;k<=40;k++)p.push((R()-.5)*6);lines.push({p,a:.3+R()*.4,gx:R(),gw:.05+R()*.18})}
-const pits=[];for(let i=0;i<60;i++)pits.push([R(),R(),2+R()*6]);
-let pos=.5;
-function draw(){c.clearRect(0,0,W,H);
-  const g=c.createLinearGradient(0,0,W,H);g.addColorStop(0,'#A1C155');g.addColorStop(1,'#7EA233');c.fillStyle=g;c.fillRect(0,0,W,H);
-  c.save();c.translate(W/2,H/2);c.rotate(-Math.PI/4);const L=Math.hypot(W,H),sp=L/lines.length;
-  lines.forEach((r,i)=>{const y=-L/2+i*sp;c.strokeStyle=`rgba(50,72,12,${r.a})`;c.lineWidth=3;c.beginPath();r.p.forEach((d,k)=>{const x=-L/2+k*L/40;k?c.lineTo(x,y+d):c.moveTo(x,y+d)});c.stroke();
-    c.strokeStyle='rgba(230,245,195,.5)';c.lineWidth=2.5;c.beginPath();c.moveTo(-L/2+r.gx*L,y+sp/2);c.lineTo(-L/2+(r.gx+r.gw)*L,y+sp/2);c.stroke()});c.restore();
-  pits.forEach(p=>{c.fillStyle='rgba(38,56,8,.55)';c.beginPath();c.ellipse(p[0]*W,p[1]*H,p[2]*1.6,p[2],-.7,0,7);c.fill()});
-  const x=pos*W;c.save();c.beginPath();c.rect(x,0,W-x,H);c.clip();
-  const g2=c.createLinearGradient(0,0,W,H);g2.addColorStop(0,'#B0CF66');g2.addColorStop(.5,'#94B744');g2.addColorStop(1,'#82A637');c.fillStyle=g2;c.fillRect(0,0,W,H);
-  c.translate(W/2,H/2);c.rotate(-Math.PI/4);c.strokeStyle='rgba(60,84,20,.08)';c.lineWidth=2;for(let y=-L/2;y<L/2;y+=11){c.beginPath();c.moveTo(-L/2,y);c.lineTo(L/2,y);c.stroke()}
-  c.setTransform(1,0,0,1,0,0);const gl=c.createLinearGradient(W*.55,0,W*.85,H*.6);gl.addColorStop(0,'rgba(255,255,255,0)');gl.addColorStop(.5,'rgba(255,255,255,.35)');gl.addColorStop(1,'rgba(255,255,255,0)');c.fillStyle=gl;c.fillRect(0,0,W,H);c.restore();
-  c.fillStyle='#fff';c.fillRect(x-4,0,8,H);c.shadowColor='rgba(0,0,0,.25)';c.shadowBlur=20;c.beginPath();c.arc(x,H/2,44,0,7);c.fill();c.shadowBlur=0;
-  c.fillStyle='#17161A';[[-1],[1]].forEach(([d])=>{c.beginPath();c.moveTo(x+d*26,H/2);c.lineTo(x+d*10,H/2-13);c.lineTo(x+d*10,H/2+13);c.fill()});
-  box.setAttribute('aria-valuenow',Math.round(pos*100));}
-function set(clientX){const r=box.getBoundingClientRect();pos=clamp((clientX-r.left)/r.width,.04,.96);draw()}
-let drag=false;box.addEventListener('pointerdown',e=>{drag=true;box.setPointerCapture(e.pointerId);set(e.clientX)});
-box.addEventListener('pointermove',e=>{if(drag)set(e.clientX)});box.addEventListener('pointerup',()=>drag=false);
-box.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){pos=clamp(pos-.05,.04,.96);draw()}if(e.key==='ArrowRight'){pos=clamp(pos+.05,.04,.96);draw()}});
-draw();
-}
 loadTips();
 </script>
 

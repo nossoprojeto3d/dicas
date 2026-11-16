@@ -28,7 +28,6 @@
       "porque": "10% a mais de material fecha os vãos entre as linhas, e o bico mais devagar no topo deixa o acabamento liso e uniforme.",
       "nota": "Leva uns minutinhos a mais de impressão. Vale.",
       "busca": "topo superficie superior liso riscado fluxo velocidade lixa",
-      "comparar": true,
       "video": "reel_topo_liso.mp4"
     },
     {
@@ -64,7 +63,6 @@
       "porque": "Plástico quente demais escorre e vira fio; a retração puxa o filamento de volta antes do bico viajar; e evitando cruzar paredes o bico passa por dentro da peça, escondendo o fiapo.",
       "nota": "O valor de retração é para extrusora direta; em bowden o número é maior. Ainda com fiapo? Seca o filamento, que umidade também causa teia.",
       "busca": "teia de aranha fiapo fiapos stringing fio cabelo retração temperatura bico cruzar paredes umidade secar filamento",
-      "comparar": false,
       "video": "reel_02_teia-de-aranha.mp4"
     },
     {
@@ -100,7 +98,6 @@
       "porque": "O suporte em árvore encosta na peça só em pontinhos; subir a distância Z do padrão 0.2 para 0.255 mm deixa uma folguinha para o suporte segurar sem soldar; e a interface cria uma tampa lisa onde a peça apoia, em vez de apoiar direto nos pilares.",
       "nota": "O padrão da distância Z superior costuma ser 0.2 mm; em 0.255 mm o suporte solta bem mais fácil sem a peça cair.",
       "busca": "suporte grudado gruda difícil tirar remover marca marcado cicatriz parte de baixo árvore tree distância z interface support",
-      "comparar": false,
       "video": "reel_03_suporte-grudado.mp4"
     },
     {
@@ -148,7 +145,6 @@
       "porque": "Mesa limpa e sem gordura, primeira camada mais lenta e um pouco mais quente fazem o plástico espalhar e grudar; viagem mais lenta evita que o bico arranque a camada.",
       "nota": "Na mesa e no bico, sobe 5 °C, imprime uma peça de teste e repete até grudar. Vale só para a camada inicial.",
       "busca": "primeira camada nao gruda descola levanta adesao mesa placa warping lavar detergente velocidade viagem temperatura mesa bico teste temperatura 5 graus",
-      "comparar": false,
       "video": "reel_04_primeira-camada.mp4"
     },
     {
@@ -196,7 +192,6 @@
       "porque": "Cada site tem comunidade e designers diferentes; procurar em mais de um aumenta a chance de achar o modelo certo.",
       "nota": "Confere a licença de cada modelo antes de vender a peça.",
       "busca": "sites modelos stl baixar download makerworld creality cloud printables cults thingiverse makeronline arquivos gratis pagos",
-      "comparar": false,
       "video": "reel_05_sites-de-modelos.mp4"
     },
     {
@@ -238,7 +233,6 @@
       "porque": "A distância Z na altura da camada + 0,04 mm deixa a folguinha certa; mais camadas de interface bem juntinhas formam uma tampa lisa e firme que solta de uma vez; e com a altura independente desmarcada o suporte segue as mesmas camadas da peça, então essa folga fica exata.",
       "nota": "Regra rápida: distância Z superior = altura da camada + 0,04 mm (camada 0,2 → 0,24 mm). Veja também a dica nº 03, que usa suporte em árvore.",
       "busca": "suporte difícil tirar remover arrancar alicate grudado gruda interface superior espaçamento distância z altura independente camada support",
-      "comparar": false,
       "video": "reel_06_suporte-facil.mp4"
     },
     {
@@ -274,7 +268,6 @@
       "porque": "O Arachne varia a largura da linha e consegue preencher detalhe fino que o Clássico pula. Com a parede externa e o topo em 0,32 mm (o padrão é 0,42), a linha fica mais fina que o bico e contorna curva pequena sem borrar.",
       "nota": "Valores para bico 0,4 mm e camada de 0,2 mm. Deixa as outras larguras como estão.",
       "busca": "letra pequena borrada relevo detalhe fino nítido chaveiro texto arachne clássico gerador de parede largura da linha parede externa superfície superior line width outer wall top surface bico 0.4",
-      "comparar": true,
       "video": "reel_08_letra-nitida.mp4"
     },
     {
@@ -316,7 +309,6 @@
       "porque": "A sobra de cada troca de cor vai pro miolo da peça útil em vez de virar uma torre que vai pro lixo. No fim sai uma peça a mais no lugar do desperdício.",
       "nota": "A peça útil tem que ser igual ou maior que a peça que gera a purga, pra caber toda a sobra. Em impressora de dois bicos, o fatiador avisa que a torre ajuda na troca de bico; confere na pré-visualização antes de imprimir.",
       "busca": "torre de purga prime tower purga troca de cor ams multicolor desperdício filamento lixo economia purgar neste objeto flush into object peça útil fidget",
-      "comparar": false,
       "video": "reel_10_torre-de-purga.mp4"
     },
     {
@@ -364,7 +356,6 @@
       "porque": "Em pé, as camadas atravessam a quina e ela racha ali; deitada, cada camada tem a quina inteira. Parede segura mais força que preenchimento, o Gyroid distribui a força pra todo lado (acima de uns 25% só ganha peso), e um pouco mais de temperatura com menos ventoinha faz uma camada soldar melhor na outra.",
       "nota": "Ventoinha mais baixa pode piorar pontes e balanços; se a peça tiver muito disso, use 80 a 90%. Vale pra gancho, suporte em L, suporte de carretel e qualquer peça que faz força numa quina.",
       "busca": "peça quebra fraca resistência forte orientação deitar posicionar na face camadas delaminação gancho suporte em L quina paredes perímetros preenchimento infill gyroid densidade temperatura ventoinha cooling sem trocar filamento",
-      "comparar": false,
       "video": "reel_11_peca-mais-forte.mp4"
     },
     {
@@ -400,7 +391,6 @@
       "porque": "Na traseira a costura fica no lado que ninguém vê; pintando numa quina, ela some dentro do canto; e com a parede externa mais lenta o começo e o fim de cada volta fecham sem bolinha.",
       "nota": "Em peça redonda não tem quina pra esconder: vira a costura pro lado que vai ficar contra a parede. A velocidade de 120 mm/s é um ponto de partida; o padrão varia por impressora.",
       "busca": "costura risco vertical linha vertical seam zíper bolinha emenda posição da costura traseira alinhada pintura de costura seam painting parede externa velocidade acabamento",
-      "comparar": true,
       "video": "reel_12_costura-escondida.mp4"
     },
     {
@@ -442,7 +432,6 @@
       "porque": "O filamento espalha um pouco pra dentro do furo e pra fora da peça. A compensação de furo abre o furo, a de contorno afina a parte de fora, a de pé de elefante tira o excesso da 1ª camada, e a folga no desenho garante o encaixe.",
       "nota": "Os valores são ponto de partida: imprime um furo de teste e ajusta de 0,05 em 0,05 mm. Encaixe justo (pressão): 0,1 mm de folga; encaixe solto (gira): 0,3 mm.",
       "busca": "encaixe não entra furo menor pino maior tolerância folga medida precisão compensação de furo hole compensation contorno contour pé de elefante elephant foot lixar",
-      "comparar": false,
       "video": "reel_14_encaixe-na-medida.mp4"
     },
     {
@@ -478,7 +467,6 @@
       "porque": "Mais camadas por cima fecham os buracos; um pouco mais de preenchimento dá apoio pro topo não afundar; e com a ventoinha no máximo o topo esfria rápido e não cai entre as linhas.",
       "nota": "Em PETG, deixa a ventoinha entre 50 e 70%. Se o topo fechar mas ainda ficar áspero, veja a dica nº 01.",
       "busca": "topo furado buracos no topo pillowing furinhos fios no topo camadas superiores casca superior top layers preenchimento ventoinha resfriamento acabamento",
-      "comparar": true,
       "video": "reel_16_topo-furado.mp4"
     },
     {
@@ -526,7 +514,6 @@
       "porque": "São ferramentas que já estão no fatiador e resolvem coisas que muita gente faz na mão ou em outro programa: dividir peça grande, escrever na peça, montar a mesa pra produção, imprimir mais rápido sem perder detalhe e pintar rápido.",
       "nota": "Os nomes podem variar um pouco conforme a versão e o idioma do Bambu Studio. No Orca Slicer a maioria existe com nomes parecidos.",
       "busca": "bambu studio funções escondidas truques atalhos cortar corte conectores pinos texto relevo emboss preencher placa cópias encher mesa altura de camada variável adaptativo pintura de cor balde",
-      "comparar": false,
       "video": "reel_17_funcoes-bambu-studio.mp4"
     },
     {
@@ -562,7 +549,6 @@
       "porque": "Nas curvas e cantos o cabeçote freia e muda de direção. Rápido demais, ele balança e deixa um eco da forma na parede. Menos velocidade e aceleração na parede de fora e correias firmes acabam com o balanço.",
       "nota": "Só a parede externa precisa ir mais devagar; o resto da peça pode continuar rápido. Valores de partida, o padrão varia por impressora.",
       "busca": "ghosting ringing ondinhas ondulação eco marcas repetidas parede vibração velocidade parede externa aceleração correia folga acabamento",
-      "comparar": true,
       "video": "reel_18_ondinhas-parede.mp4"
     },
     {
@@ -598,7 +584,6 @@
       "porque": "Primeira camada mal presa é a causa de falha mais citada por quem estuda o assunto. Filamento úmido estala e faz bolhas, e bico sujo deixa o fio fraco ou torto.",
       "nota": "Os números de falha são estimativas da comunidade, não uma pesquisa oficial. O jeito certo de secar o filamento e de limpar o bico depende do material e da impressora.",
       "busca": "falha impressão falhando 3d primeira camada não gruda filamento úmido bico entupido sujo causas problemas descolou estala bolhas",
-      "comparar": false,
       "video": "reel_19_100-impressoes.mp4"
     }
   ]
