@@ -585,6 +585,42 @@
       "nota": "Os números de falha são estimativas da comunidade, não uma pesquisa oficial. O jeito certo de secar o filamento e de limpar o bico depende do material e da impressora.",
       "busca": "falha impressão falhando 3d primeira camada não gruda filamento úmido bico entupido sujo causas problemas descolou estala bolhas",
       "video": "reel_19_100-impressoes.mp4"
+    },
+    {
+      "n": 20,
+      "titulo": "Erro ao alimentar o filamento no AMS",
+      "tema": "Problemas",
+      "gancho": [
+        "Erro ao alimentar",
+        "o filamento do AMS",
+        "na impressão 3D?"
+      ],
+      "lead": "O aviso diz que não foi possível alimentar a extrusora com filamento. Quase sempre é carretel preso, tubo mal encaixado ou ponta do filamento torta. Confere nesta ordem.",
+      "ajustes": [
+        {
+          "onde": "Carretel",
+          "oque": "Carretel preso ou com nó",
+          "valor": "Solta o carretel, desfaz o nó e confere se gira livre",
+          "unidade": ""
+        },
+        {
+          "onde": "Tubo",
+          "oque": "Tubo mal encaixado",
+          "valor": "Empurra o tubo até o fim e confere se está firme nas duas pontas",
+          "unidade": ""
+        },
+        {
+          "onde": "Ponta do filamento",
+          "oque": "Ponta torta ou com grumo",
+          "valor": "Corta a ponta reta, em ângulo, e coloca de novo no AMS",
+          "unidade": ""
+        }
+      ],
+      "porque": "O alimentador só empurra o filamento se ele sair do carretel sem resistência, passar pelo tubo sem folga e entrar reto na extrusora. Qualquer uma das três falhas trava a alimentação e gera o erro.",
+      "nota": "Os passos seguem a ordem do vídeo de referência; se o erro continuar, confira o manual da sua impressora.",
+      "busca": "erro alimentar filamento AMS extrusora carretel preso emaranhado nó tubo PTFE solto ponta torta entupido não puxa filamento",
+      "comparar": false,
+      "video": "reel_20_erro-ams.mp4"
     }
   ]
 }
