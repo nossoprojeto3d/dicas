@@ -621,6 +621,42 @@
       "busca": "erro alimentar filamento AMS extrusora carretel preso emaranhado nó tubo PTFE solto ponta torta entupido não puxa filamento",
       "comparar": false,
       "video": "reel_20_erro-ams.mp4"
+    },
+    {
+      "n": 21,
+      "titulo": "Arquivo 3MF virou .zip depois de baixar",
+      "tema": "Problemas",
+      "gancho": [
+        "Seu arquivo 3MF de",
+        "impressão 3D virou",
+        "pasta com zíper?"
+      ],
+      "lead": "Ao baixar um 3MF pelo WhatsApp, o arquivo pode chegar com .zip no final do nome e não abrir no fatiador. Dá para arrumar em 3 passos, direto no Windows.",
+      "ajustes": [
+        {
+          "onde": "Explorador de Arquivos",
+          "oque": "Mostrar extensões",
+          "valor": "Exibir > Mostrar > Extensões de nomes de arquivos",
+          "unidade": ""
+        },
+        {
+          "onde": "Nome do arquivo",
+          "oque": "Apagar o .zip do final",
+          "valor": "Botão direito > Renomear (ou F2) e deixar só .3mf",
+          "unidade": ""
+        },
+        {
+          "onde": "Aviso do Windows",
+          "oque": "Confirmar a troca",
+          "valor": "Clicar em Alterar",
+          "unidade": ""
+        }
+      ],
+      "porque": "O WhatsApp acrescenta .zip ao nome do arquivo. Sem ver a extensão, ninguém percebe; ao tirar o .zip, o arquivo volta a ser um 3MF normal.",
+      "nota": "Passos mostrados no Windows; no Mac o caminho é parecido (Finder > Ajustes > Avançado > Mostrar todas as extensões).",
+      "busca": "3mf zip whatsapp arquivo não abre renomear extensão pasta com zíper baixou 3mf virou zip fatiador",
+      "comparar": false,
+      "video": "reel_21_3mf-zip.mp4"
     }
   ]
 }
